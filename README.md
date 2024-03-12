@@ -34,6 +34,9 @@ You can find all instructions and explanations [here](https://github.com/l4ti/TS
 ### WPA3
  -
 
+## Used equipment
+ - 1x APU4C4 Router with OpenWRT
+
 ## Useful stuff
  - [How to Markdown](https://www.markdownguide.org/basic-syntax/#links)
  - [Kali Docs](https://www.kali.org/docs/)
