@@ -1,6 +1,8 @@
 # Wireless Hack The Flag
 **Télécom SudParis NET4104**
-Cybersecurity Hack the Flag project.
+
+This project aims to teach the common Wi-Fi vunerabilites, using a cool Hack The Flag game.
+You can find all instructions and explanations [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/REPORT.md) and all automation attack shell scripts can be found [here]((https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts)
 
 
 ## Members
@@ -11,7 +13,7 @@ Cybersecurity Hack the Flag project.
 
 ## Objective
  - Set-up configuration
- - Explain 5 attacks using Kali Linux
+ - Explain attacks using Kali Linux (tbd, around 5)
  - Automation of cited attacks (Shell Scripts)
  - Step-by-step flag capturing
 
