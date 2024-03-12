@@ -22,7 +22,8 @@ You can find all instructions and explanations [here](https://github.com/l4ti/TS
  - [Network Eavesdropping](https://www.fortinet.com/resources/cyberglossary/eavesdropping)
 
 ### WEP
- - 
+ - [Fluhrer, Mantin and Shamir - FMS](https://en.wikipedia.org/wiki/Fluhrer,_Mantin_and_Shamir_attack)
+ - [Pyshkin, Tews, and Weinmann - PTW](https://eprint.iacr.org/2007/120.pdf)
 
 ### WPA
  - 
