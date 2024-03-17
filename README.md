@@ -39,7 +39,11 @@ You can find all instructions and explanations [here](https://github.com/l4ti/TS
  - [KRACK](https://www.enisa.europa.eu/publications/info-notes/an-overview-of-the-wi-fi-wpa2-vulnerability)
 
 ### WPA3
- -
+ - [Dragonblood vulnerabilities](https://www.zdnet.com/article/dragonblood-vulnerabilities-disclosed-in-wifi-wpa3-standard/) : In total, five vulnerabilities are part of the Dragonblood ensemble --a denial of service attack, two downgrade attacks, and two side-channel information leaks.
+While the denial of service attack is somewhat unimportant as it only leads to crashing WPA3-compatible access points, the other four are the ones that can be used to recover user passwords.
+	 + [Full paper](https://papers.mathyvanhoef.com/dragonblood.pdf)
+	 + [How to launch the attacks](https://github.com/neildalal/wpa3-attacks-ids#Overview)
+ 
 
 ## Used equipment
  - 1x APU4C4 Router with OpenWRT
