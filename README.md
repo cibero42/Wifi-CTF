@@ -30,7 +30,7 @@ You can find all instructions and explanations [here](https://github.com/l4ti/TS
 
 ### WPA2
  - [KRACK](https://www.enisa.europa.eu/publications/info-notes/an-overview-of-the-wi-fi-wpa2-vulnerability)
- - [Youtube video] (https://www.youtube.com/watch?v=fOgJswt7nAc)
+ - [Youtube video](https://www.youtube.com/watch?v=fOgJswt7nAc)
    
 
 ### WPA3
