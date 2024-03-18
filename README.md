@@ -30,8 +30,10 @@ You can find all instructions and explanations [here](https://github.com/l4ti/TS
 
 ### WPA2
  - [KRACK](https://www.enisa.europa.eu/publications/info-notes/an-overview-of-the-wi-fi-wpa2-vulnerability)
- - [Youtube video](https://www.youtube.com/watch?v=fOgJswt7nAc)
-   
+ - [KRACK - Key Reinstallation Attacks: Forcing Nonce Reuse in WPA2](https://www.youtube.com/watch?v=fOgJswt7nAc)
+ - [Explaining the KRACK Vulnerability](https://www.youtube.com/watch?v=q7KYoyNw7Ss)
+ - [Krack Attacks (WiFi WPA2 Vulnerability) - Computerphile](https://www.youtube.com/watch?v=mYtvjijATa4&t=122s)
+ - [Protocoles de sécurité sans-fil WPA WPA2 et WPA3](https://cisco.goffinet.org/ccna/wlan/protocoles-securite-sans-fil-wpa-wpa2-wpa3)
 
 ### WPA3
  -
