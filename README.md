@@ -45,8 +45,11 @@ You can find all instructions and explanations [here](https://github.com/l4ti/TS
   + Tool: Aircrack-ng (with Crunch)
    + Description: Crunch is a wordlist generator that can be used to create custom wordlists for dictionary attacks. Aircrack-ng can then be used to perform the dictionary attack on captured WPA/WPA2 handshakes.
    + Usage: Generate a wordlist using Crunch and then use Aircrack-ng to perform the dictionary attack.
+
     
- -**Evil Twin Attack**: While WPA provides encryption, it doesn't prevent the creation of rogue access points. An attacker can set up an evil twin access point with the same SSID as the legitimate network, tricking users into connecting to it and revealing their passphrase.
+ -**Evil Twin Attack**:
+useful link: **https://www.stationx.net/evil-twin-wifi-attack/**
+ While WPA provides encryption, it doesn't prevent the creation of rogue access points. An attacker can set up an evil twin access point with the same SSID as the legitimate network, tricking users into connecting to it and revealing their passphrase.
  + **How to do it using Kali Linux ?**
   +   Tool: Fluxion
    + Description: Fluxion is a tool for creating rogue access points and conducting man-in-the-middle attacks on Wi-Fi networks. It automates the process of setting up an evil twin access point and capturing login credentials.
