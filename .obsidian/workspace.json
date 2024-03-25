@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "attackGuides/evilTwin.md",
+                "file": "attackGuides/eavsdropping.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "attackGuides/evilTwin.md",
+                "file": "attackGuides/eavsdropping.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "attackGuides/evilTwin.md",
+                "file": "attackGuides/eavsdropping.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "attackGuides/evilTwin.md"
+                "file": "attackGuides/eavsdropping.md"
               }
             }
           }
@@ -148,9 +148,9 @@
   },
   "active": "5d466e2515e3d95f",
   "lastOpenFiles": [
+    "attackGuides/evilTwin.md",
     "attackGuides/eavsdropping.md",
     "attackGuides/dragonBlood.md",
-    "attackGuides/bruteForce.md",
-    "attackGuides/evilTwin.md"
+    "attackGuides/bruteForce.md"
   ]
 }

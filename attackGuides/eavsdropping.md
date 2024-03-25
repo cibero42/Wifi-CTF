@@ -1,6 +1,7 @@
 # Eavsdropping
-Evasdropping is an attack which is able to capture the traffic from the network.
+This attack simply listen to traffic and steals information from it. It can be straightly implemented on an open AP. It is necessary to know the Wi-Fi password from WPA/WPA2/WPA3 to execute the attack over an encrypted network.
 
+Tools-used: iw (linux default), ifconfig, wireshark 
 ## Step 1 : Check your Wi-Fi modems
 
 ```
