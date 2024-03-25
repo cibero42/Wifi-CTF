@@ -1,5 +1,11 @@
 # Evil Twin Attack
-Attack for WPA / WPA2
+**Social Engineering Attack**
+This attack:
+1. Captures a handshake of the target (WPA/WPA2)
+2. Creates a rogue AP with captive portal
+3. Waits for victims to connect to the fake network and test the password inputed on the captive portal against the handshake - if the handshake is decripted, it means that the user inputed password is the right one
+
+Used tools: airmon-ng, airgeddon
 
 ## Step 1 : Install airgeddon
 ```
