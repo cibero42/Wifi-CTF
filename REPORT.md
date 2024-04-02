@@ -1,3 +1,28 @@
+# Plan 
+1.Introduction (Sarra & Mayssa) \
+2.Vulnerabilities \
+2.1. Eavsdropping (Sarra & Mayssa) \
+2.1.1 Definition \
+2.1.2 Kali Linux \
+2.2 Brute Force (Amine) \
+2.3 Rainbow Table (Sarra & Mayssa) \
+2.4 Evil Twin  (Amine) \
+2.5 DragonBlood (Renato) \
+2.5.1 Definition \
+2.5.2 Fixes \
+3.Capture the flag \
+3.1 Architecture (Renato) \
+3.2 Configuration \
+3.2.1 Router (Renato) \
+3.2.2 OPEN Clients (Amine & Renato) \
+3.2.3 WPA2 Clients (Sarra & Mayssa) \
+3.2.4 WPA3 Clients (Renato) \
+3.3. How to Hack (Renato) \
+4. Conclusion (Amine) \
+
+
+
+
 
 OPEN wifi
 
