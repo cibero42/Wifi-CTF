@@ -79,7 +79,19 @@ Forms of eavesdropping attacks:
 
 ## 2.5 DragonBlood
 ### 2.5.1 Definition
-**(Renato)**
+In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonblood: Analyzing the Dragonfly Handshake of WPA3 and EAP-pwd," which exposed five vulnerabilities in the WPA3 protocol. Despite being heralded as "unbreakable" upon its release by the IEEE, these vulnerabilities shed light on potential weaknesses in the protocol, particularly in its Dragonfly handshake mechanism. For the purpose of this Capture the Flag competition, this report will focus on the vulnerabilities related to the Dragonfly handshake, omitting discussion of EAP-pwd as enterprise networks are not within the scope.
+
+1. **Downgrade Attack Against WPA3-Transition:** This attack exploits the transition mode defined in the WPA3 specification, where a Wi-Fi network supports both WPA3 and WPA2 with the same password. An adversary can set up a rogue WPA2-only network to lure clients that support WPA3. By capturing partial WPA2 handshakes, the attacker can then launch brute-force or dictionary attacks to recover the password without needing a man-in-the-middle position.
+
+2. **Security Group Downgrade Attack:** During the handshake initiation, the client sends a commit frame indicating the preferred security group. If the AP doesn't support this group, it responds with a decline message, prompting the client to select another group. An attacker can impersonate an AP and send forged decline messages to force clients into choosing a weaker security group, thereby compromising the network's security.
+
+3. **Timing-Based Side-Channel Attack:** This attack leverages timing discrepancies in AP responses to commit frames to infer information about the password. While NIST elliptic curves don't leak timing information, other curves like Brainpool or multiplicative security groups modulo a prime do. By analyzing response times, an attacker can execute a dictionary attack to guess the password.
+
+4. **Cache-Based Side-Channel Attack:** By observing memory access patterns on a victim's device during the construction of a commit frame in a Dragonfly handshake, an attacker can deduce information about the password. This can be achieved through controlling applications on the victim's device or even executing JavaScript code in the victim's browser. The leaked patterns facilitate a dictionary attack to guess the password.
+
+5. **Denial-of-Service (DoS) Attack:** This attack involves overloading Access Points (APs) by generating a relatively low number of forged commit frames per second. This causes high CPU usage on the AP, draining its battery, and impeding or delaying other devices from connecting via WPA3. Additionally, it may disrupt other functionalities of the AP, resulting in a DoS scenario.
+
+In practice the WPA3 attacks which are more relevant are downgrade attacks and timing attacks against resource-constrained devices.
 
 ### 2.5.2 Fixes
 **(Renato)**
@@ -87,7 +99,9 @@ Forms of eavesdropping attacks:
 # 3 CAPTURE THE FLAG
 ## 3.1 Requirements
 The hardware requirements for the Capture the Flag competition are relatively straightforward:
+
 - **Router:** It should include firewall capabilities, support the creation of multiple Wi-Fi networks, and have WPA2/WPA3 encryption enabled.
+
 - **Clients:** Four Raspberry Pi devices or computers running the Raspberry Pi OS, each equipped with WPA2/WPA3 compatible network cards.
 
 To streamline the setup process for the competition, it is advisable to utilize OpenWrt. Below, we outline a step-by-step configuration guide (section 3.3.1) for implementing OpenWrt.
