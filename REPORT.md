@@ -85,23 +85,29 @@ Forms of eavesdropping attacks:
 **(Renato)**
 
 # 3 CAPTURE THE FLAG
-## 3.1 Architecture
+## 3.1 Requirements
+The hardware requirements for the Capture the Flag competition are relatively straightforward:
+- **Router:** It should include firewall capabilities, support the creation of multiple Wi-Fi networks, and have WPA2/WPA3 encryption enabled.
+- **Clients:** Five Raspberry Pi devices or computers running the Raspberry Pi OS, each equipped with WPA2/WPA3 compatible network cards.
+
+To streamline the setup process for the competition, it is advisable to utilize OpenWrt. Below, we outline a step-by-step configuration guide (section 3.3.1) for implementing OpenWrt.
+
+## 3.2 Architecture
+
+## 3.3 Configuration
+### 3.3.1 Router
 **(Renato)**
 
-## 3.2 Configuration
-### 3.2.1 Router
-**(Renato)**
-
-### 3.2.2 OPEN Clients
+### 3.3.2 OPEN Clients
 **(Amine)**
 
-### 3.2.3 WPA2 Clients
+### 3.3.3 WPA2 Clients
 **(Sarra & Mayssa)**
 
-### 3.2.4 WPA3 Clients
+### 3.3.4 WPA3 Clients
 **(Renato)**
 
-## 3.3. Getting The Flag
+## 3.4 Getting The Flag
 **(Renato)**
 
 # 4 CONCLUSION
