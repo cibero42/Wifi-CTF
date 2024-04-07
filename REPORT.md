@@ -79,7 +79,7 @@ Forms of eavesdropping attacks:
 
 ## 2.5 DragonBlood
 ### 2.5.1 Definition
-In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonblood: Analyzing the Dragonfly Handshake of WPA3 and EAP-pwd," which exposed five vulnerabilities in the WPA3 protocol. Despite being heralded as "unbreakable" upon its release by the IEEE, these vulnerabilities shed light on potential weaknesses in the protocol, particularly in its Dragonfly handshake mechanism. For the purpose of this Capture the Flag competition, this report will focus on the vulnerabilities related to the Dragonfly handshake, omitting discussion of EAP-pwd as enterprise networks are not within the scope.
+In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonblood: Analyzing the Dragonfly Handshake of WPA3 and EAP-pwd," which exposed five vulnerabilities in the WPA3 protocol. Despite being heralded as "unbreakable" upon its release by the Wi-Fi Alliance, these vulnerabilities shed light on potential weaknesses in the protocol, particularly in its Dragonfly handshake mechanism. For the purpose of this Capture the Flag competition, this report will focus on the vulnerabilities related to the Dragonfly handshake, omitting discussion of EAP-pwd as enterprise networks are not within the scope.
 
 1. **Downgrade Attack Against WPA3-Transition:** This attack exploits the transition mode defined in the WPA3 specification, where a Wi-Fi network supports both WPA3 and WPA2 with the same password. An adversary can set up a rogue WPA2-only network to lure clients that support WPA3. By capturing partial WPA2 handshakes, the attacker can then launch brute-force or dictionary attacks to recover the password without needing a man-in-the-middle position.
 
@@ -94,7 +94,17 @@ In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonbloo
 In practice the WPA3 attacks which are more relevant are downgrade attacks and timing attacks against resource-constrained devices.
 
 ### 2.5.2 Fixes
-**(Renato)**
+Months following the discovery of the vulnerabilities, the Wi-Fi Alliance took proactive steps to address the issues by privately formulating backward-compatible security guidelines. In November 2019, they publicly released a set of guidelines aimed at bolstering the security of WPA3:
+
+- **Prohibition of Brainpool Curves:** The guidelines explicitly prohibited the use of Brainpool curves, which were found to be susceptible to timing-based side-channel attacks.
+
+- **Avoidance of Side-Channels in SAE Implementations:** It was mandated that implementations of Simultaneous Authentication of Equals (SAE) must mitigate the risk of side-channel attacks, enhancing the robustness of the protocol.
+
+- **Enforcement of Separate Passwords for WPA3 and WPA2 Networks:** To mitigate the risk of downgrade attacks, vendors were instructed that if their implementation of WPA3-Transition did not meet all security requirements, WPA3 and WPA2 networks should utilize distinct passwords and be logically segregated from each other.
+
+However, these implementations were found to be resource-intensive and negatively impacted the performance of lightweight IoT devices, prompting concerns within the industry.
+
+As of 2024, most vendors have implemented fixes to address the vulnerabilities, effectively bolstering the security of WPA3 once again. For instance, during our research, attempts were made to execute a WPA3 downgrade attack using a Samsung Android 14 client. However, the attack was unsuccessful, as the client promptly detected the suspicious activity and displayed a warning message.
 
 # 3 CAPTURE THE FLAG
 ## 3.1 Requirements
