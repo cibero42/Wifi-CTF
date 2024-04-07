@@ -43,3 +43,66 @@ Forms of eavesdropping attacks:
     Packet Sniffing: Packet sniffing involves capturing and analyzing data packets transmitted over a network. Attackers can use packet sniffers to eavesdrop on sensitive information, such as login credentials or personal messages.
 
     Evil Twin Attacks: In an Evil Twin attack, the attacker sets up a rogue access point with the same SSID as a legitimate WiFi network. Users unknowingly connect to the rogue access point, allowing the attacker to intercept their traffic and potentially eavesdrop on their communication.
+
+
+# 1 INTRODUCTION
+**(Sarra & Mayssa)**
+
+# 2 VULNERABILITIES
+## 2.1 Eavsdropping
+### 2.1.1 Definition
+**(Sarra & Mayssa)**
+
+### 2.1.2 Attack Implementation
+**(Sarra & Mayssa)**
+
+## 2.2 Brute Force
+### 2.2.1 Definition
+**(Amine)**
+
+### 2.2.2 Attack Implementation
+**(Amine)**
+
+## 2.3 Rainbow Table
+### 2.3.1 Definition
+**(Sarra & Mayssa)**
+
+### 2.3.2 Attack Implementation
+**(Sarra & Mayssa)**
+
+## 2.4 Evil Twin
+### 2.4.1 Definition
+**(Amine)**
+
+### 2.4.2 Attack Implementation
+**(Amine)**
+
+## 2.5 DragonBlood
+### 2.5.1 Definition
+**(Renato)**
+
+### 2.5.2 Fixes
+**(Renato)**
+
+# 3 CAPTURE THE FLAG
+## 3.1 Architecture
+**(Renato)**
+
+## 3.2 Configuration
+### 3.2.1 Router
+**(Renato)**
+
+### 3.2.2 OPEN Clients
+**(Amine)**
+
+### 3.2.3 WPA2 Clients
+**(Sarra & Mayssa)**
+
+### 3.2.4 WPA3 Clients
+**(Renato)**
+
+## 3.3. Getting The Flag
+**(Renato)**
+
+# 4 CONCLUSION
+**(Amine)**

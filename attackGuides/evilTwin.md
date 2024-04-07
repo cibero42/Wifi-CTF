@@ -23,15 +23,16 @@ Starting monitor interface (usually the interface name is wlan0, but you can che
 sudo airmon-ng start wlan0
 ```
 
+Now the interface should be in monitor mode, and its name has been changed from "yourWifiIInterface" to "yourWiFiInteface**mon**"
 ## Step 3 : Start airgeddon
 ```
 sudo airgeddon
 ```
 
-In the first run, airgeddon is going to check if you have all necessary packets installed. Press **Enter** to enter in airgeddon terminal.
+Firstly, airgeddon is going to check if you have all necessary packets installed. Press **Enter** to enter in airgeddon terminal.
 
 ## Step 4 : Select network in airgeddon
-Check for **wlan0mon** in airgeddon list, and type the number corresponding to it.
+Check for **wlan0mon** (or your interface name) in airgeddon list, and type the number corresponding to it.
 
 ## Step 5 : Start Evil Twin attack
 ### 5.1 Select attack
