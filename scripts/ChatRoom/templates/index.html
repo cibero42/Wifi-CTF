@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Flask_Chat_App</title>
+    <script src="{{url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/socket.io.min.js')}}"></script>
+  </head>
+  <body>
+    
+    <script type="text/javascript">
+   $(document).ready(function() {
+    var socket = io.connect("http://192.168.2.161:5000");
+    
+    socket.on('connect', function() {
+        socket.send("User Connected");
+    });
+    
+    socket.on('message', function(data) {
+        $('#messages').append($('<p>').text(data));
+    });
+    
+    $('#sendBtn').on('click', function() {
+        console.log('Username:', $('.username').val());
+        console.log('Message:', $('.message').val());
+
+        socket.send($('.username').val() + ': ' + $('.message').val());
+        $('.message').val('');
+    });
+});
+
+    
+    </script>
+    
+     <div id="messages">
+    </div>
+    
+    <input type="text" class="username" placeholder="User Name" required>
+    <input type="text" class="message" placeholder="Messages" required>
+    <button id="sendBtn">send</button>
+    
+
+  </body>
+  </html>
