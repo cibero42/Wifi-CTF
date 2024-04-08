@@ -72,10 +72,14 @@ Forms of eavesdropping attacks:
 
 ## 2.4 Evil Twin
 ### 2.4.1 Definition
-**(Amine)**
+An evil twin attack is a type of cyber attack where a malicious actor sets up a rogue wireless access point (AP) with the same Service Set Identifier (SSID) as a legitimate AP. This deceitful AP appears to be a trusted network, enticing unsuspecting users to connect to it, unaware that they are falling into a trap. Once connected, the attacker can intercept sensitive information such as usernames, passwords, and other confidential data transmitted over the network. Evil twin attacks are often carried out in public Wi-Fi hotspots, exploiting the convenience of open networks to lure in targets.
+This attack can be particularly effective in places like airports, cafes, and hotels, where users frequently connect to public Wi-Fi networks without verifying their legitimacy.
+In this report, we will demonstrate our implementation of the evil twin attack on an OPEN, WPA or WPA2 Wi-Fi network.
 
 ### 2.4.2 Attack Implementation
 **(Amine)**
+installing wget : sudo apt-get install wget.
+cloning the Login page of CAS TSP : wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://cas6.imtbs-tsp.eu/cas/login?service=https://ecampus.imtbs-tsp.eu/uPortal/Login
 
 ## 2.5 DragonBlood
 ### 2.5.1 Definition
