@@ -257,12 +257,12 @@ Firstly, airgeddon is going to check if you have all necessary packets installed
 Check for **wlan0mon** {**your interface name**} in airgeddon list, and type the number corresponding to it.
 
 #### Step 5 : Start Evil Twin attack
-### 5.1 Select attack
+##### 5.1 Select attack
 Select option 7
 
-### 5.2 Find target
+##### 5.2 Find target
 ```
-Select option 4 and then **Enter**.
+Select option 4 and then Enter.
 ```
 
 A new terminal will open. Let it run for a while to capture the networks, then press Ctrl+C and go back to the main terminal.
@@ -271,7 +271,7 @@ A new terminal will open. Let it run for a while to capture the networks, then p
 Select the desired network and press enter.
 ```
 
-### 5.3 Select attack with captive portal 
+##### 5.3 Select attack with captive portal 
 ```
 Select option 9. Press enter twice.
 ```
@@ -279,38 +279,38 @@ Let the scan run for a while ..
 ```
 press Ctrl+C.
 ```
-### 5.4 Select network again
+##### 5.4 Select network again
 ```
 Select the desired SSID.
 ```
-### 5.5 Select the Deauthntication attack method
+##### 5.5 Select the Deauthntication attack method
 ```
 Select option 1 (Deauth / disassoc amok mkd4 attack).
 ```
 ```
-In **spoof your MAC address**, select **y**
+In {spoof your MAC address}, select y
 ```
 ```
-In **captures hadshake file**, select **n**
+In {captures hadshake file}, select n
 ```
 ```
-In **timeout**, type 100
+In {timeout], type 100
 ```
 ```
-Press **Enter**
+Press Enter
 ```
 If the handshake capture was successful, you'll see a message saying "Congratulations !!"
 ```
-Press **Enter** four times
+Press Enter four times
 ```
 ```
 Select captive portal laguage.
 ```
 ```
-In **captive lortal logo**, select **n**
+In {captive lortal logo}, select n
 ```
 ```
-Press **Enter**
+Press Enter
 ```
 Wait for the victim to connect to the fake access point and type the right password.
 
