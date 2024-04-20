@@ -155,7 +155,7 @@ Before performing a rainbowTable attack, you need to :
 
 ### 2.3.2. Attack implementation
 
-## Step1: Install rainbowcrack package
+#### Step1: Install rainbowcrack package
 
 Open a terminal in kali and install the rainbowcrack package:
 ```
@@ -163,7 +163,7 @@ sudo apt install rainbowcrack
 ```
 
 
-## Step2: Generate a rainbow table
+#### Step2: Generate a rainbow table
 
 Open the help menu of rtgen to display the options:
 ```
@@ -194,7 +194,7 @@ cd /usr/share/rainbowcrack
 sudo rtsort .
 ```
 
-## Step4: find the password
+#### Step4: find the password
 Use RainbowCrack tool to crack the password hash.
 ```
 rcrack . -h <hash_of_password>
