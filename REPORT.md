@@ -107,20 +107,17 @@ sudo wireshark
 ```
 
 #### Step 7 : Select the interface
-
 In the Wireshark GUI, select the created monitor interface **mon0**.
 
 #### Step 8 : Add wireless toolbar
-
 In the Wireshark GUI, go to the menu **View** and enable the **Wireless Toolbar**
 
 #### Step 9 : Select channel and bandwidth
-
 In the Wireshark GUI, select the channel and bandwidth according to the specifications of the Wi-Fi network for which you want to monitor the traffic.
 
 #### Step 10 : Filter the traffic
 
-##### 10.1 : Find out the BSSID from the network
+##### Step 10.1 : Find out the BSSID from the network
 
 In the Wireshark GUI, filter the traffic by beacon packets and ssid.
 
@@ -128,7 +125,7 @@ In the Wireshark GUI, filter the traffic by beacon packets and ssid.
 wlan.fc.type_subtype == 8 && wlan.ssid == "<SSID>"
 ```
 
-##### 10.2 : Filter traffic by BSSID
+##### Step 10.2 : Filter traffic by BSSID
 
 Inside the **IEEE 802.11 Beacon Frame**, search for the BSSID, right-click on it and select **Apply as filter > Selected**
 
@@ -198,29 +195,26 @@ Before performing a rainbowTable attack, you need to :
 - find information about the form of the plaintext password (minimum and maximum length, format: numbers, alphabet, special characters..) by looking at the format of allowed passwords of the target application/system.
 
 ### 2.3.2 Attack implementation
-
 #### Step 1 : Install rainbowcrack package
-
 Open a terminal in kali and install the rainbowcrack package:
 ```
 sudo apt install rainbowcrack
 ```
 
-
 #### Step 2 : Generate a rainbow table
-
 Open the help menu of rtgen to display the options:
 ```
 rtgen -h
 ```
 
-
 Choose an option that corresponds to the form of the password and modify the following according to your case. 
+
 ```
 rtgen <hash_algorithm> <charset> <length_min> <length_max> <table_index> <chain_min> <chain_num> <part_index>
 ```
 
-Example: for a password "12345678", the following options can be used:    
+Example: for a password "12345678", the following options can be used: 
+
 ```
 sudo rtgen md5 numeric 1 8 0 100000 100000 0
 ```
