@@ -30,7 +30,7 @@
 
 
 
-# 1. INTRODUCTION
+# 1 INTRODUCTION
 
 In today's digitized world, the importance of cybersecurity cannot be overstated. As society becomes increasingly reliant on digital technologies for communication, commerce, and critical infrastructure, the risks associated with cyber threats grow concurrently. Cybersecurity serves as the cornerstone for protecting sensitive information, preserving privacy, and maintaining the integrity of systems and networks.
 
@@ -54,9 +54,9 @@ Introduced in 2018, WPA3 aims to improve upon its predecessors by introducing st
 
 This lab was created with the purpose of gaining fundamental knowledge of various known attacks, such as Rainbow Table and Evil Twin. To achieve this goal, the lab employs a multi-protocol architecture, utilizing OPEN, WPA2, and WPA3, which automatically generates traffic while concealing a flag within it. The objective is to compete in capturing the flag by executing attacks on the architecture.
 
-# 2. VULNERABILITIES
-## 2.1. Eavesdropping
-### 2.1.1. Definition
+# 2 VULNERABILITIES
+## 2.1 Eavesdropping
+### 2.1.1 Definition
 
 Open WiFi networks are wireless networks where traffic is not secured or encrypted, allowing users to connect without authentication. They are commonly found in public places, but their lack of security poses significant risks.
 Eavesdropping attacks involve the unauthorized interception of communication between two parties, through which the attacker gains access to sensitive information.
@@ -69,7 +69,7 @@ There are various types of eavesdropping attacks:
 
 An eavesdropping attack simply listens to traffic and steals information from it. Therefore, it can be easily implemented on an open access point. However, to execute the attack on an encrypted network, it is necessary to know the Wi-Fi password for WPA/WPA2/WPA3.
 
-### 2.1. Attack implementation
+### 2.1 Attack implementation
 
 Tools-used: iw (linux default), ifconfig, wireshark 
 
@@ -135,31 +135,31 @@ Inside the **IEEE 802.11 Beacon Frame**, search for the BSSID, right-click on it
 **Now you can see all the Wi-Fi traffic from the network!**
 
 
-## 2.2. Brute Force
-### 2.2.1. Definition
+## 2.2 Brute Force
+### 2.2.1 Definition
 A Brute Force attack is a method used by attackers to gain unauthorized access to a system, application, or encrypted data by systematically trying all possible combinations of passwords or encryption keys until the correct one is found. This attack relies on the computational power of modern computers to exhaustively test every possible password within a given character set.
 
 In the context of wireless security, Brute Force attacks are commonly employed to crack the encryption keys used to secure Wi-Fi networks, such as WPA. Attackers utilize automated tools to generate and test a vast number of password permutations rapidly, aiming to discover the correct passphrase and gain access to the network.
 
 Brute Force attacks pose a significant threat to the confidentiality and integrity of sensitive information transmitted over wireless networks. Successful compromise of network credentials can grant attackers unrestricted access to network resources, enabling them to eavesdrop on communications, intercept data, or launch further malicious activities.
 
-### 2.2.2. Attack implementation
+### 2.2.2 Attack implementation
 For demonstration purposes, we will detail the implementation of a Brute Force attack targeting a WPA Wi-Fi network with the SSID "WPA WIFI" and the password "12345678".
 
-#### Step 1: Identify the Target Network
+#### Step 1 : Identify the Target Network
 Identify the target WPA Wi-Fi network with the SSID "WPA WIFI".
 
-#### Step 2: Select Brute Force Tool
+#### Step 2 : Select Brute Force Tool
 Choose a suitable Brute Force tool capable of conducting attacks against Wi-Fi networks. Aircrack-ng is one of the popular choices for this purpose.
 
-#### Step 3: Capture Handshake
+#### Step 3 : Capture Handshake
 Before initiating the Brute Force attack, capture the handshake of the target WPA Wi-Fi network using a tool like Airodump-ng:
 ```
 airodump-ng wlan0 --channel [channel_number] --bssid [BSSID] -w capture_file
 ```
 [channel_number] is the channel of the target network and [BSSID] is the MAC address of the access point.
 
-#### Step 4: Configure the Attack
+#### Step 4 : Configure the Attack
 Configure the selected Brute Force tool to target the captured handshake file and initiate the attack using a combination of characters (numbers, letters, and symbols) for the password.
 
 For example, using Aircrack-ng:
@@ -168,13 +168,13 @@ aircrack-ng -w capture_file.cap -charset 1-9a-z capture_file.cap
 
 ```
 
-#### Step 5: Initiate the Attack
+#### Step 5 : Initiate the Attack
 Launch the Brute Force attack against the target WPA Wi-Fi network using the configured tool. The tool will systematically generate and test password permutations, attempting to crack the WPA passphrase.
 
-#### Step 6: Monitor Progress
+#### Step 6 : Monitor Progress
 Monitor the progress of the Brute Force attack as the tool iterates through password combinations. Depending on the complexity of the password and computational resources available, the attack may take varying amounts of time to complete.
 
-#### Step 7: Access Gained
+#### Step 7 : Access Gained
 If the Brute Force attack successfully discovers the correct password "12345678", the attacker gains unauthorized access to the WPA Wi-Fi network. With access granted, the attacker can exploit vulnerabilities, extract sensitive information, or carry out further malicious activities.
 
 Here's an example of what you might see when Aircrack-ng successfully cracks a password:
@@ -186,20 +186,20 @@ EAPOL HMAC      : 12 34 56 78 90 12 34 56 78 90 12 34 56 78 90 12
 
 ```
 
-## 2.3. Rainbow Table
-### 2.3.1. Definition
+## 2.3 Rainbow Table
+### 2.3.1 Definition
 The passwords in a computer system are not stored directly as plain texts but are hashed using encryption. A hash function is a 1-way function, which means that it can’t be decrypted. Whenever a user enters a password, it is converted into a hash value and is compared with the already stored hash value. If the values match, the user is authenticated.
 
 The rainbowtable is a precomputed dictionary of plaintext passwords and their corresponding hash values that can be used to find out what plaintext password produces a particular hash. Doing an rainbowntable attack is quicker than a simple bruteforce attack because the hash value was previously calculated.
 
-## Prerequisites : 
+**Prerequisites:**
 Before performing a rainbowTable attack, you need to :
 - find the hash of the password  you want to decrypt. 
 - find information about the form of the plaintext password (minimum and maximum length, format: numbers, alphabet, special characters..) by looking at the format of allowed passwords of the target application/system.
 
-### 2.3.2. Attack implementation
+### 2.3.2 Attack implementation
 
-#### Step 1: Install rainbowcrack package
+#### Step 1 : Install rainbowcrack package
 
 Open a terminal in kali and install the rainbowcrack package:
 ```
@@ -207,7 +207,7 @@ sudo apt install rainbowcrack
 ```
 
 
-#### Step 2: Generate a rainbow table
+#### Step 2 : Generate a rainbow table
 
 Open the help menu of rtgen to display the options:
 ```
@@ -231,14 +231,14 @@ The creation of the rainbow table takes much time and storage space on system, b
 
 The rainbow table will be stored in /usr/share/rainbowcrack directory.
 
-#### Step 3: sort the rainbowTable
+#### Step 3 : sort the rainbowTable
 Go to the directory where the table file .rt is stored and sort the rainbowTable.
 ```
 cd /usr/share/rainbowcrack
 sudo rtsort .
 ```
 
-#### Step 4: find the password
+#### Step 4 : find the password
 Use RainbowCrack tool to crack the password hash.
 ```
 rcrack . -h <hash_of_password>
@@ -246,8 +246,8 @@ rcrack . -h <hash_of_password>
 
 In our example, the md5 hash of the password "12345678" is "25d55ad283aa400af464c76d713c07ad".
 
-## 2.4. Evil Twin
-### 2.4.1. Definition
+## 2.4 Evil Twin
+### 2.4.1 Definition
 An Evil Twin attack is a sophisticated wireless security threat where a malicious actor sets up a rogue wireless access point (AP) that impersonates a legitimate network. This fraudulent AP, often configured with the same SSID (Service Set Identifier) and encryption parameters as the genuine network, deceives unsuspecting users into connecting to it instead of the authentic network.
 
 The primary objective of an Evil Twin attack is to intercept sensitive information transmitted between users and network resources. By luring users to connect to the rogue AP, attackers can capture network traffic, including login credentials, financial data, or personal information. This type of attack exploits the trust users place in wireless networks, posing significant risks to the confidentiality and integrity of their data.
@@ -256,7 +256,7 @@ This attack can be particularly effective in places like airports, cafes, and ho
 
 In this report, we will demonstrate our implementation of the evil twin attack on an OPEN, WPA or WPA2 Wi-Fi network.
 
-### 2.4.2. Attack implementation
+### 2.4.2 Attack implementation
 **(Amine)**
 For our example of attack implementation, we have cloned the login web page of CAS TSP and we will try to capture the credentials of our target. 
 
@@ -264,7 +264,7 @@ Here are the main steps that we follow it to clone this web page.
 
 #### Step 1 : Installing the wget
 ```
-sudo apt-get install wget.
+sudo apt-get install wget
 ```
 
 #### Step 2 : Cloning the Login page of CAS TSP : 
@@ -301,10 +301,10 @@ Firstly, airgeddon is going to check if you have all necessary packets installed
 Check for **wlan0mon** {**your interface name**} in airgeddon list, and type the number corresponding to it.
 
 #### Step 5 : Start Evil Twin attack
-##### 5.1 Select attack
+##### Step 5.1 Select attack
 Select option 7
 
-##### 5.2 Find target
+##### Step 5.2 Find target
 ```
 Select option 4 and then Enter.
 ```
@@ -315,19 +315,19 @@ A new terminal will open. Let it run for a while to capture the networks, then p
 Select the desired network and press enter.
 ```
 
-##### 5.3 Select attack with captive portal 
+##### Step 5.3 Select attack with captive portal 
 ```
 Select option 9. Press enter twice.
 ```
 Let the scan run for a while ..
 ```
-press Ctrl+C.
+Press Ctrl+C.
 ```
-##### 5.4 Select network again
+##### Step 5.4 Select network again
 ```
 Select the desired SSID.
 ```
-##### 5.5 Select the Deauthntication attack method
+##### Step 5.5 Select the Deauthntication attack method
 ```
 Select option 1 (Deauth / disassoc amok mkd4 attack).
 ```
@@ -338,31 +338,34 @@ In {spoof your MAC address}, select y
 In {captures hadshake file}, select n
 ```
 ```
-In {timeout], type 100
+In {timeout}, type 100
 ```
 ```
-Press Enter
+Press Enter.
 ```
+
 If the handshake capture was successful, you'll see a message saying "Congratulations !!"
+
 ```
-Press Enter four times
+Press Enter four times.
 ```
 ```
 Select captive portal laguage.
 ```
 ```
-In {captive lortal logo}, select n
+In {captive lortal logo}, select n.
 ```
 ```
-Press Enter
+Press Enter.
 ```
+
 Wait for the victim to connect to the fake access point and type the right password.
 
-When this happens, you'll get the Wi-Fi password
+When this happens, you'll get the Wi-Fi password.
 
 
-## 2.5. DragonBlood
-### 2.5.1. Definition
+## 2.5 DragonBlood
+### 2.5.1 Definition
 In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonblood: Analyzing the Dragonfly Handshake of WPA3 and EAP-pwd," which exposed five vulnerabilities in the WPA3 protocol. Despite being heralded as "unbreakable" upon its release by the Wi-Fi Alliance, these vulnerabilities shed light on potential weaknesses in the protocol, particularly in its Dragonfly handshake mechanism. For the purpose of this Capture the Flag competition, this report will focus on the vulnerabilities related to the Dragonfly handshake, omitting discussion of EAP-pwd as enterprise networks are not within the scope.
 
 1. **Downgrade Attack Against WPA3-Transition:** This attack exploits the transition mode defined in the WPA3 specification, where a Wi-Fi network supports both WPA3 and WPA2 with the same password. An adversary can set up a rogue WPA2-only network to lure clients that support WPA3. By capturing partial WPA2 handshakes, the attacker can then launch brute-force or dictionary attacks to recover the password without needing a man-in-the-middle position.
@@ -377,7 +380,7 @@ In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonbloo
 
 In practice the WPA3 attacks which are more relevant are downgrade attacks and timing attacks against resource-constrained devices.
 
-### 2.5.2. Fixes
+### 2.5.2 Fixes
 Months following the discovery of the vulnerabilities, the Wi-Fi Alliance took proactive steps to address the issues by privately formulating backward-compatible security guidelines. In November 2019, they publicly released a set of guidelines aimed at bolstering the security of WPA3:
 
 - **Prohibition of Brainpool Curves:** The guidelines explicitly prohibited the use of Brainpool curves, which were found to be susceptible to timing-based side-channel attacks.
@@ -390,8 +393,8 @@ However, these implementations were found to be resource-intensive and negativel
 
 As of 2024, most vendors have implemented fixes to address the vulnerabilities, effectively bolstering the security of WPA3 once again. For instance, during our research, attempts were made to execute a WPA3 downgrade attack using a Samsung Android 14 client. However, the attack was unsuccessful, as the client promptly detected the suspicious activity and displayed a warning message.
 
-# 3. CAPTURE THE FLAG
-## 3.1. Requirements
+# 3 CAPTURE THE FLAG
+## 3.1 Requirements
 The hardware requirements for the Capture the Flag competition are relatively straightforward:
 
 - **Router:** It should include firewall capabilities, support the creation of multiple Wi-Fi networks, and have WPA2/WPA3 encryption enabled.
@@ -400,7 +403,7 @@ The hardware requirements for the Capture the Flag competition are relatively st
 
 To streamline the setup process for the competition, it is advisable to utilize OpenWrt. Below, we outline a step-by-step configuration guide (section 3.3.1) for implementing OpenWrt.
 
-## 3.2. Architecture
+## 3.2 Architecture
 The competition's infrastructure comprises three wireless networks employing different levels of security: no-encryption, WPA2-PSK, and WPA3-SAE. These technologies were selected based on their prevalence in wireless networks as of 2024.
 
 The deployment of an open wireless network serves as a distractor, intentionally devoid of any relevant information leading to the flag. However, this network generates significant traffic from a single client, adding to the challenge for participants. Introducing distractions enhances the competition's complexity, as the winner is determined by a timely manner.
@@ -409,8 +412,8 @@ Within the WPA2 network, two clients engage in HTTP traffic, simulating an unenc
 
 Inside the WPA3 network, a single client is connected, generating minimal traffic as possible. This client has a weak SSH password, and the flag is concealed within its files, encoded in base64. Upon gaining access to the WPA3 network, participants must locate and infiltrate this client, decipher the message within the unidentified flag file, and successfully obtain the flag.
 
-## 3.3. Configuration
-### 3.3.1. Router
+## 3.3 Configuration
+### 3.3.1 Router
 **(Renato)**
 
 ### 3.3.2. OPEN Clients
@@ -445,17 +448,17 @@ while true; do
 done
 ```
 
-### 3.3.3. WPA2 Clients
+### 3.3.3 WPA2 Clients
 **(Mayssa)**
 
-### 3.3.4. WPA3 Clients
+### 3.3.4 WPA3 Clients
 **(Renato)**
 
-## 3.4. Getting The Flag
+## 3.4 Getting The Flag
 **(Renato)**
 
-# 4. CONCLUSION
+# 4 CONCLUSION
 **(Amine)**
 
-# 5. REFERENCES
+# 5 REFERENCES
 https://security.stackexchange.com/questions/92903/rainbow-tables-hash-tables-versus-wpa-wpa2
