@@ -414,7 +414,36 @@ Inside the WPA3 network, a single client is connected, generating minimal traffi
 **(Renato)**
 
 ### 3.3.2. OPEN Clients
-**(Amine)**
+The Bash script below generates random network activity to simulate typical user behavior in an open Wi-Fi environment. By sending various types of network requests such as pings, DNS queries, and HTTP requests to different destinations, it mimics the behavior of real network traffic. This simulated activity assists in evaluating the effectiveness of network security measures and identifying potential vulnerabilities in the open Wi-Fi configuration.
+
+```
+#!/bin/bash
+
+while true; do
+    random=$(( (RANDOM % 16) + 1 ))
+    case $random in
+        1) ping -c 5 8.8.8.8 >/dev/null ;;
+        2) ping -c 5 1.1.1.1 >/dev/null ;;
+        3) ping -c 5 uol.com.br >/dev/null ;;
+        4) ping -c 5 google.com >/dev/null ;;
+        5) ping -c 5 linkedin.com >/dev/null ;;
+        6) ping -c 5 facebook.com >/dev/null ;;
+        7) ping -c 5 amazon.com >/dev/null ;;
+        8) ping -c 5 instagram.com >/dev/null ;;
+        9) dig google.com +short >/dev/null ;;
+       10) dig facebook.com +short >/dev/null ;;
+       11) dig amazon.com +short >/dev/null ;;
+       12) dig instagram.com +short >/dev/null ;;
+       13) wget -qO- http://google.com >/dev/null ;;
+       14) wget -qO- http://facebook.com >/dev/null ;;
+       15) wget -qO- http://amazon.com >/dev/null ;;
+       16) wget -qO- http://instagram.com >/dev/null ;;
+    esac
+
+    # Sleep for a while
+    sleep $(( (RANDOM % 5) + 1 ))
+done
+```
 
 ### 3.3.3. WPA2 Clients
 **(Mayssa)**
