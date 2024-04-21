@@ -137,10 +137,54 @@ Inside the **IEEE 802.11 Beacon Frame**, search for the BSSID, right-click on it
 
 ## 2.2. Brute Force
 ### 2.2.1. Definition
-**(Amine)**
+A Brute Force attack is a method used by attackers to gain unauthorized access to a system, application, or encrypted data by systematically trying all possible combinations of passwords or encryption keys until the correct one is found. This attack relies on the computational power of modern computers to exhaustively test every possible password within a given character set.
+
+In the context of wireless security, Brute Force attacks are commonly employed to crack the encryption keys used to secure Wi-Fi networks, such as WPA. Attackers utilize automated tools to generate and test a vast number of password permutations rapidly, aiming to discover the correct passphrase and gain access to the network.
+
+Brute Force attacks pose a significant threat to the confidentiality and integrity of sensitive information transmitted over wireless networks. Successful compromise of network credentials can grant attackers unrestricted access to network resources, enabling them to eavesdrop on communications, intercept data, or launch further malicious activities.
 
 ### 2.2.2. Attack implementation
-**(Amine)**
+For demonstration purposes, we will detail the implementation of a Brute Force attack targeting a WPA Wi-Fi network with the SSID "WPA WIFI" and the password "12345678".
+
+#### Step 1: Identify the Target Network
+Identify the target WPA Wi-Fi network with the SSID "WPA WIFI".
+
+#### Step 2: Select Brute Force Tool
+Choose a suitable Brute Force tool capable of conducting attacks against Wi-Fi networks. Aircrack-ng is one of the popular choices for this purpose.
+
+#### Step 3: Capture Handshake
+Before initiating the Brute Force attack, capture the handshake of the target WPA Wi-Fi network using a tool like Airodump-ng:
+```
+airodump-ng wlan0 --channel [channel_number] --bssid [BSSID] -w capture_file
+```
+[channel_number] is the channel of the target network and [BSSID] is the MAC address of the access point.
+
+#### Step 4: Configure the Attack
+Configure the selected Brute Force tool to target the captured handshake file and initiate the attack using a combination of characters (numbers, letters, and symbols) for the password.
+
+For example, using Aircrack-ng:
+```
+aircrack-ng -w capture_file.cap -charset 1-9a-z capture_file.cap
+
+```
+
+#### Step 5: Initiate the Attack
+Launch the Brute Force attack against the target WPA Wi-Fi network using the configured tool. The tool will systematically generate and test password permutations, attempting to crack the WPA passphrase.
+
+#### Step 6: Monitor Progress
+Monitor the progress of the Brute Force attack as the tool iterates through password combinations. Depending on the complexity of the password and computational resources available, the attack may take varying amounts of time to complete.
+
+#### Step 7: Access Gained
+If the Brute Force attack successfully discovers the correct password "12345678", the attacker gains unauthorized access to the WPA Wi-Fi network. With access granted, the attacker can exploit vulnerabilities, extract sensitive information, or carry out further malicious activities.
+
+Here's an example of what you might see when Aircrack-ng successfully cracks a password:
+```
+KEY FOUND! [ 12345678 ]
+Master Key      : AB CD EF 12 34 56 78 90 12 34 56 78 90 12 34 56
+Transient Key   : CD EF 12 34 56 78 90 12 34 56 78 90 12 34 56 78
+EAPOL HMAC      : 12 34 56 78 90 12 34 56 78 90 12 34 56 78 90 12
+
+```
 
 ## 2.3. Rainbow Table
 ### 2.3.1. Definition
