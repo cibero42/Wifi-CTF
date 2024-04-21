@@ -359,7 +359,18 @@ When this happens, you'll get the Wi-Fi password.
 
 
 ## 2.5 DragonBlood
-### 2.5.1 Definition
+### 2.5.1 WPA3-SAE
+The SAE method present on WPA3 represents a significant advancement in wireless encryption, particularly when compared to its predecessor, WPA2-PSK. One critical vulnerability in WPA2 lies in its multi-stage handshake process for negotiating session keys, which renders it susceptible to KRACK attacks, as previously discussed in this report.
+
+SAE addresses these vulnerabilities head-on, fortifying WLANs against potential breaches and safeguarding data traffic in mesh networks. Simultaneous Authentication of Equals significantly enhances security, particularly in cases of weak passwords, rendering it impractical to infer key information through handshake recordings.
+
+Moreover, the key exchange protocol of SAE boasts Perfect Forward Secrecy (PFS), ensuring that even if session keys were to be compromised, past communications remain impervious to decryption. This resilience extends to scenarios where WLAN passwords are subsequently exposed, as recorded data packets remain indecipherable.
+
+While SAE retains the use of shared passwords for WLAN access, it introduces a crucial innovation: the derivation of a unique Pairwise Master Key (PMK) for each client from these passwords. This personalized PMK makes it possible for every client to set its own encryption key which isn't shared with others, avoiding Eavsdrop attacks.
+
+Through a four-way handshake between WLAN clients and authentication servers, Pairwise Transient Keys (PTKs) are derived from the PMKs, serving as the foundation for data encryption. This meticulous approach ensures that each client's communication remains isolated and protected, even within shared password environments.
+
+### 2.5.2 Definition
 In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonblood: Analyzing the Dragonfly Handshake of WPA3 and EAP-pwd," which exposed five vulnerabilities in the WPA3 protocol. Despite being heralded as "unbreakable" upon its release by the Wi-Fi Alliance, these vulnerabilities shed light on potential weaknesses in the protocol, particularly in its Dragonfly handshake mechanism. For the purpose of this Capture the Flag competition, this report will focus on the vulnerabilities related to the Dragonfly handshake, omitting discussion of EAP-pwd as enterprise networks are not within the scope.
 
 1. **Downgrade Attack Against WPA3-Transition:** This attack exploits the transition mode defined in the WPA3 specification, where a Wi-Fi network supports both WPA3 and WPA2 with the same password. An adversary can set up a rogue WPA2-only network to lure clients that support WPA3. By capturing partial WPA2 handshakes, the attacker can then launch brute-force or dictionary attacks to recover the password without needing a man-in-the-middle position.
@@ -374,7 +385,7 @@ In April 2019, Mathy Vanhoef and Eyal Ronen published a paper titled "Dragonbloo
 
 In practice the WPA3 attacks which are more relevant are downgrade attacks and timing attacks against resource-constrained devices.
 
-### 2.5.2 Fixes
+### 2.5.3 Fixes
 Months following the discovery of the vulnerabilities, the Wi-Fi Alliance took proactive steps to address the issues by privately formulating backward-compatible security guidelines. In November 2019, they publicly released a set of guidelines aimed at bolstering the security of WPA3:
 
 - **Prohibition of Brainpool Curves:** The guidelines explicitly prohibited the use of Brainpool curves, which were found to be susceptible to timing-based side-channel attacks.
@@ -456,3 +467,5 @@ done
 
 # 5 REFERENCES
 https://security.stackexchange.com/questions/92903/rainbow-tables-hash-tables-versus-wpa-wpa2
+
+SAE: https://ieeexplore.ieee.org/document/4622764
