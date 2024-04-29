@@ -136,40 +136,40 @@ sudo airodump-ng wlan0mon
 #### Step 3 : Capture Handshake
 To capture the Handshake, we need first to deauthenticate the user and when he tries to reauthenticate we will be able to capture the Handshake.
 To deauthenticate users from the target WIFI network, we need to run this command :
+
 ```
 sudo aireplay-ng --deauth 100 -a [BSSID] wlan0mon --ignore-negative-one
 ```
 
 Before initiating the Brute Force attack, capture the handshake of the target WPA Wi-Fi network using a tool like Airodump-ng:
+
 ```
 airodump-ng wlan0 --channel [channel_number] --bssid [BSSID] -w capture_file
 ```
-[channel_number] is the channel of the target network
-[BSSID] is the MAC address of the access point
+channel_number is the channel of the target network
+BSSID is the MAC address of the access point
 
 #### Step 4 : Configure the Attack
 Configure the selected Brute Force tool to target the captured handshake file and initiate the attack.
 
-We need first to have the dictionnary that will be used during the attack.
+We need first to have the dictionnary that will be used during the attack. Run the following command:
 ```
 wordlists
 ```
-and then put y to extract the wordlist rockyou.txt
-
-And then we will use the Aircrack-ng to start the attack:
-```
-aircrack-ng -w wordlists/rockyou.txt -b [BSSID] capture_file.cap 
-
-```
+and then type y to extract the wordlist rockyou.txt
 
 #### Step 5 : Initiate the Attack
-When launching this attack against the target Wi-Fi, the tool will systematically generate and test password permutations, attempting to crack the passphrase.
+We will use the Aircrack-ng to find the Wi-Fi password. The tool will systematically generate and test password permutations, attempting to crack the passphrase.
+
+```
+aircrack-ng -w wordlists/rockyou.txt -b [BSSID] capture_file.cap 
+```
 
 #### Step 6 : Monitor Progress
 Monitor the progress of the Brute Force attack as the tool iterates through password combinations. Depending on the complexity of the password and computational resources available, the attack may take varying amounts of time to complete.
 
 #### Step 7 : Access Gained
-If the Brute Force attack successfully discovers the correct password "12345678", the attacker gains unauthorized access to the WPA Wi-Fi network. With access granted, the attacker can exploit vulnerabilities, extract sensitive information, or carry out further malicious activities.
+If the Brute Force attack successfully discovers the correct password (in our case "12345678"), the attacker gains unauthorized access to the WPA Wi-Fi network. With access granted, the attacker can exploit vulnerabilities, extract sensitive information, or carry out further malicious activities.
 
 Here's an example of what you might see when Aircrack-ng successfully cracks a password:
 ```
