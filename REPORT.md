@@ -111,13 +111,27 @@ In the context of wireless security, Brute Force attacks are commonly employed t
 Brute Force attacks pose a significant threat to the confidentiality and integrity of sensitive information transmitted over wireless networks. Successful compromise of network credentials can grant attackers unrestricted access to network resources, enabling them to eavesdrop on communications, intercept data, or launch further malicious activities.
 
 ### 2.2.2 Attack implementation
-For demonstration purposes, we will detail the implementation of a Brute Force attack targeting a WPA Wi-Fi network with the SSID "WPA WIFI" and the password "12345678".
+For demonstration purposes, we will detail the implementation of a Brute Force attack targeting a WPA2 Wi-Fi network using Kali Linux.
 
-#### Step 1 : Identify the Target Network
-Identify the target WPA Wi-Fi network with the SSID "WPA WIFI".
+#### Step 1 : Kill Processes Related To The Network
+This can be achieved simply running:
 
-#### Step 2 : Select Brute Force Tool
-Choose a suitable Brute Force tool capable of conducting attacks against Wi-Fi networks. Aircrack-ng is one of the popular choices for this purpose.
+```
+sudo airmon-ng check kill
+```
+
+#### Step 2 : Put Wireless Interface In Monitor Mode
+In order to allow the computer to monitor all Wi-Fi traffic,  it is needed to change the Wireless Network Card mode from Managed to Monitor. Run the following command in order to do that, changing **wlan0** by the name the network interface:
+
+```
+sudo airmon-ng start wlan0
+```
+
+#### Step 4 : Scan Available Networks
+After the previous step, the interface has been put in monitor mode and its name has been changed to **wlan0mon**, in this guide's case. To discover nearby Wireless Networks and its related clients, do:
+```
+sudo airodump-ng wlan0mon
+```
 
 #### Step 3 : Capture Handshake
 Before initiating the Brute Force attack, capture the handshake of the target WPA Wi-Fi network using a tool like Airodump-ng:
