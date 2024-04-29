@@ -410,36 +410,7 @@ As discussed earlier, the concept behind the Open Wi-Fi Network is to strategica
 
 A practical approach to achieve this goal involves developing a bash script designed to simulate genuine user interactions within an open Wi-Fi environment. This script generates diverse network activities to emulate typical user behaviors. By continuously initiating various types of network requests such as pings, DNS queries, and HTTP requests directed towards different destinations, it replicates the patterns observed in genuine network traffic.
 
-```
-#!/bin/bash
-
-while true; do
-    random=$(( (RANDOM % 16) + 1 ))
-    case $random in
-        1) ping -c 5 8.8.8.8 >/dev/null ;;
-        2) ping -c 5 1.1.1.1 >/dev/null ;;
-        3) ping -c 5 uol.com.br >/dev/null ;;
-        4) ping -c 5 google.com >/dev/null ;;
-        5) ping -c 5 linkedin.com >/dev/null ;;
-        6) ping -c 5 facebook.com >/dev/null ;;
-        7) ping -c 5 amazon.com >/dev/null ;;
-        8) ping -c 5 instagram.com >/dev/null ;;
-        9) dig google.com +short >/dev/null ;;
-       10) dig facebook.com +short >/dev/null ;;
-       11) dig amazon.com +short >/dev/null ;;
-       12) dig instagram.com +short >/dev/null ;;
-       13) wget -qO- https://google.com/ >/dev/null ;;
-       14) wget -qO- https://facebook.com/ >/dev/null ;;
-       15) wget -qO- https://amazon.com/ >/dev/null ;;
-       16) wget -qO- https://instagram.com/ >/dev/null ;;
-       17) wget -qO- https://vertexa.com.br/ >/dev/null ;;
-       18) wget -qO- https://www.linkedin.com/login/fr >/dev/null ;;
-    esac
-
-    # Sleep for a while
-    sleep $(( (RANDOM % 5) + 1 ))
-done
-```
+The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/generationTraffic.sh)
 
 ### 3.3.3 WPA2 Clients
 **(Mayssa)**
