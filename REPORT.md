@@ -127,7 +127,7 @@ In order to allow the computer to monitor all Wi-Fi traffic,  it is needed to ch
 sudo airmon-ng start wlan0
 ```
 
-#### Step 4 : Scan Available Networks
+#### Step 3 : Scan Available Networks
 After the previous step, the interface has been put in monitor mode and its name has been changed to **wlan0mon**, in this guide's case. To discover nearby Wireless Networks and its related clients, do:
 ```
 sudo airodump-ng wlan0mon
@@ -138,19 +138,27 @@ Before initiating the Brute Force attack, capture the handshake of the target WP
 ```
 airodump-ng wlan0 --channel [channel_number] --bssid [BSSID] -w capture_file
 ```
-[channel_number] is the channel of the target network and [BSSID] is the MAC address of the access point.
+[channel_number] is the channel of the target network
+[BSSID] is the MAC address of the access point
 
 #### Step 4 : Configure the Attack
-Configure the selected Brute Force tool to target the captured handshake file and initiate the attack using a combination of characters (numbers, letters, and symbols) for the password.
+Configure the selected Brute Force tool to target the captured handshake file and initiate the attack.
 
-For example, using Aircrack-ng:
+We need first to have the dictionnary that will be used during the attack.
 ```
-aircrack-ng -w capture_file.cap -charset 1-9a-z capture_file.cap
+wordlists
+
+```
+and then put y to extract the wordlist rockyou.txt
+
+And then we will use the Aircrack-ng to start the attack:
+```
+aircrack-ng -w wordlists/rockyou.txt -b [BSSID] capture_file.cap 
 
 ```
 
 #### Step 5 : Initiate the Attack
-Launch the Brute Force attack against the target WPA Wi-Fi network using the configured tool. The tool will systematically generate and test password permutations, attempting to crack the WPA passphrase.
+When launching this attack against the target Wi-Fi, the tool will systematically generate and test password permutations, attempting to crack the passphrase.
 
 #### Step 6 : Monitor Progress
 Monitor the progress of the Brute Force attack as the tool iterates through password combinations. Depending on the complexity of the password and computational resources available, the attack may take varying amounts of time to complete.
