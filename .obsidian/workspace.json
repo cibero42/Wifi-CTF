@@ -148,13 +148,13 @@
   },
   "active": "5d466e2515e3d95f",
   "lastOpenFiles": [
-    "README.md",
+    "attackGuides/bruteForce.md",
     "REPORT.md",
+    "README.md",
     "attackGuides/evilTwin.md",
     "attackGuides/eavsdropping.md",
     "attackGuides/dragonBlood.md",
     "attackGuides/krack.md",
-    "attackGuides/rainbowTable.md",
-    "attackGuides/bruteForce.md"
+    "attackGuides/rainbowTable.md"
   ]
 }

@@ -422,7 +422,9 @@ Inside the WPA3 network, a single client is connected, generating minimal traffi
 **(Renato)**
 
 ### 3.3.2. OPEN Clients
-The Bash script below generates random network activity to simulate typical user behavior in an open Wi-Fi environment. By sending various types of network requests such as pings, DNS queries, and HTTP requests to different destinations, it mimics the behavior of real network traffic. This simulated activity assists in evaluating the effectiveness of network security measures and identifying potential vulnerabilities in the open Wi-Fi configuration.
+As discussed earlier, the concept behind the Open Wi-Fi Network is to strategically mislead competitors in the "hack the flag" challenge by creating the illusion of significant activity within the network. This entails generating random traffic to attract attention effectively.
+
+A practical approach to achieve this goal involves developing a bash script designed to simulate genuine user interactions within an open Wi-Fi environment. This script generates diverse network activities to emulate typical user behaviors. By continuously initiating various types of network requests such as pings, DNS queries, and HTTP requests directed towards different destinations, it replicates the patterns observed in genuine network traffic.
 
 ```
 #!/bin/bash
@@ -442,10 +444,12 @@ while true; do
        10) dig facebook.com +short >/dev/null ;;
        11) dig amazon.com +short >/dev/null ;;
        12) dig instagram.com +short >/dev/null ;;
-       13) wget -qO- http://google.com >/dev/null ;;
-       14) wget -qO- http://facebook.com >/dev/null ;;
-       15) wget -qO- http://amazon.com >/dev/null ;;
-       16) wget -qO- http://instagram.com >/dev/null ;;
+       13) wget -qO- https://google.com/ >/dev/null ;;
+       14) wget -qO- https://facebook.com/ >/dev/null ;;
+       15) wget -qO- https://amazon.com/ >/dev/null ;;
+       16) wget -qO- https://instagram.com/ >/dev/null ;;
+       17) wget -qO- https://vertexa.com.br/ >/dev/null ;;
+       18) wget -qO- https://www.linkedin.com/login/fr >/dev/null ;;
     esac
 
     # Sleep for a while
