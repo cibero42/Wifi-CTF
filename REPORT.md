@@ -1,35 +1,5 @@
 # NET4101 - HACK THE FLAG
 
-# PLAN
-1. Introduction (Sarra) 
-2. Vulnerabilities \
-2.1. Eavesdropping (Sarra) \
-2.1.1. Definition \
-2.1.2. Attack implementation \
-2.2. Brute Force (Amine) \
-2.2.1. Definition \
-2.2.2. Attack implementation \
-2.3. Rainbow Table (Mayssa) \
-2.3.1. Definition \
-2.3.2. Attack implementation \
-2.4. Evil Twin  (Amine) \
-2.4.1. Definition \
-2.4.2. Attack implementation \
-2.5. DragonBlood (Renato) \
-2.5.1.  Definition \
-2.5.2.  Fixes 
-3. Capture the flag \
-3.1. Architecture (Renato) \
-3.2. Configuration \
-3.2.1. Router (Renato) \
-3.2.2. OPEN Clients (Amine) \
-3.2.3. WPA2 Clients (Mayssa) \
-3.2.4. WPA3 Clients (Renato) \
-3.3. How to Hack (Renato) 
-4. Conclusion (Amine) 
-
-
-
 # 1 INTRODUCTION
 
 In today's digitized world, the importance of cybersecurity cannot be overstated. As society becomes increasingly reliant on digital technologies for communication, commerce, and critical infrastructure, the risks associated with cyber threats grow concurrently. Cybersecurity serves as the cornerstone for protecting sensitive information, preserving privacy, and maintaining the integrity of systems and networks.
