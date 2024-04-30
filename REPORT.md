@@ -417,6 +417,11 @@ Inside the WPA3 network, a single client is connected, generating minimal traffi
 ## 3.3 Configuration
 ### 3.3.1 Router
 **(Renato)**
+TO DO:
+- Reconfigure Router
+- Export config and upload on Github
+- Explain Network configuration (generic)
+- Explain how to restore the config (alert that only works in same router)
 
 ### 3.3.2. OPEN Clients
 As discussed earlier, the concept behind the Open Wi-Fi Network is to strategically mislead competitors in the "hack the flag" challenge by creating the illusion of significant activity within the network. This entails generating random traffic to attract attention effectively.
@@ -430,9 +435,14 @@ The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob
 
 ### 3.3.4 WPA3 Clients
 **(Renato)**
+TO DO:
+- Create linux script for RPI (weak ssh auth, hides flag inside an archive in data, install NGINX)
+- Explain what the script does
 
 ## 3.4 Getting The Flag
 **(Renato)**
+TO DO:
+- Step by step hack the flag
 
 # 4 CONCLUSION
 **(Amine)**
