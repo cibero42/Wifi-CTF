@@ -127,36 +127,49 @@ In order to allow the computer to monitor all Wi-Fi traffic,  it is needed to ch
 sudo airmon-ng start wlan0
 ```
 
-#### Step 4 : Scan Available Networks
+#### Step 3 : Scan Available Networks
 After the previous step, the interface has been put in monitor mode and its name has been changed to **wlan0mon**, in this guide's case. To discover nearby Wireless Networks and its related clients, do:
 ```
 sudo airodump-ng wlan0mon
 ```
 
 #### Step 3 : Capture Handshake
+To capture the Handshake, we need first to deauthenticate the user and when he tries to reauthenticate we will be able to capture the Handshake.
+To deauthenticate users from the target WIFI network, we need to run this command :
+
+```
+sudo aireplay-ng --deauth 100 -a [BSSID] wlan0mon --ignore-negative-one
+```
+
 Before initiating the Brute Force attack, capture the handshake of the target WPA Wi-Fi network using a tool like Airodump-ng:
+
 ```
 airodump-ng wlan0 --channel [channel_number] --bssid [BSSID] -w capture_file
 ```
-[channel_number] is the channel of the target network and [BSSID] is the MAC address of the access point.
+channel_number is the channel of the target network
+BSSID is the MAC address of the access point
 
 #### Step 4 : Configure the Attack
-Configure the selected Brute Force tool to target the captured handshake file and initiate the attack using a combination of characters (numbers, letters, and symbols) for the password.
+Configure the selected Brute Force tool to target the captured handshake file and initiate the attack.
 
-For example, using Aircrack-ng:
+We need first to have the dictionnary that will be used during the attack. Run the following command:
 ```
-aircrack-ng -w capture_file.cap -charset 1-9a-z capture_file.cap
-
+wordlists
 ```
+and then type y to extract the wordlist rockyou.txt
 
 #### Step 5 : Initiate the Attack
-Launch the Brute Force attack against the target WPA Wi-Fi network using the configured tool. The tool will systematically generate and test password permutations, attempting to crack the WPA passphrase.
+We will use the Aircrack-ng to find the Wi-Fi password. The tool will systematically generate and test password permutations, attempting to crack the passphrase.
+
+```
+aircrack-ng -w wordlists/rockyou.txt -b [BSSID] capture_file.cap 
+```
 
 #### Step 6 : Monitor Progress
 Monitor the progress of the Brute Force attack as the tool iterates through password combinations. Depending on the complexity of the password and computational resources available, the attack may take varying amounts of time to complete.
 
 #### Step 7 : Access Gained
-If the Brute Force attack successfully discovers the correct password "12345678", the attacker gains unauthorized access to the WPA Wi-Fi network. With access granted, the attacker can exploit vulnerabilities, extract sensitive information, or carry out further malicious activities.
+If the Brute Force attack successfully discovers the correct password (in our case "12345678"), the attacker gains unauthorized access to the WPA Wi-Fi network. With access granted, the attacker can exploit vulnerabilities, extract sensitive information, or carry out further malicious activities.
 
 Here's an example of what you might see when Aircrack-ng successfully cracks a password:
 ```
@@ -404,42 +417,18 @@ Inside the WPA3 network, a single client is connected, generating minimal traffi
 ## 3.3 Configuration
 ### 3.3.1 Router
 **(Renato)**
+TO DO:
+- Reconfigure Router
+- Export config and upload on Github
+- Explain Network configuration (generic)
+- Explain how to restore the config (alert that only works in same router)
 
 ### 3.3.2. OPEN Clients
 As discussed earlier, the concept behind the Open Wi-Fi Network is to strategically mislead competitors in the "hack the flag" challenge by creating the illusion of significant activity within the network. This entails generating random traffic to attract attention effectively.
 
 A practical approach to achieve this goal involves developing a bash script designed to simulate genuine user interactions within an open Wi-Fi environment. This script generates diverse network activities to emulate typical user behaviors. By continuously initiating various types of network requests such as pings, DNS queries, and HTTP requests directed towards different destinations, it replicates the patterns observed in genuine network traffic.
 
-```
-#!/bin/bash
-
-while true; do
-    random=$(( (RANDOM % 16) + 1 ))
-    case $random in
-        1) ping -c 5 8.8.8.8 >/dev/null ;;
-        2) ping -c 5 1.1.1.1 >/dev/null ;;
-        3) ping -c 5 uol.com.br >/dev/null ;;
-        4) ping -c 5 google.com >/dev/null ;;
-        5) ping -c 5 linkedin.com >/dev/null ;;
-        6) ping -c 5 facebook.com >/dev/null ;;
-        7) ping -c 5 amazon.com >/dev/null ;;
-        8) ping -c 5 instagram.com >/dev/null ;;
-        9) dig google.com +short >/dev/null ;;
-       10) dig facebook.com +short >/dev/null ;;
-       11) dig amazon.com +short >/dev/null ;;
-       12) dig instagram.com +short >/dev/null ;;
-       13) wget -qO- https://google.com/ >/dev/null ;;
-       14) wget -qO- https://facebook.com/ >/dev/null ;;
-       15) wget -qO- https://amazon.com/ >/dev/null ;;
-       16) wget -qO- https://instagram.com/ >/dev/null ;;
-       17) wget -qO- https://vertexa.com.br/ >/dev/null ;;
-       18) wget -qO- https://www.linkedin.com/login/fr >/dev/null ;;
-    esac
-
-    # Sleep for a while
-    sleep $(( (RANDOM % 5) + 1 ))
-done
-```
+The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/generationTraffic.sh)
 
 ### 3.3.3 WPA2 Clients
 In this section we're generating WPA2 traffic between the client and the server. The client can make post and get requests to exchange data from the database.
@@ -448,9 +437,14 @@ We prepared a bash script to automate the traffic generation. You can check it t
 
 ### 3.3.4 WPA3 Clients
 **(Renato)**
+TO DO:
+- Create linux script for RPI (weak ssh auth, hides flag inside an archive in data, install NGINX)
+- Explain what the script does
 
 ## 3.4 Getting The Flag
 **(Renato)**
+TO DO:
+- Step by step hack the flag
 
 # 4 CONCLUSION
 **(Amine)**
