@@ -1,6 +1,6 @@
 # NET4101 - HACK THE FLAG
 
-# ANNEX
+# INDEX
 
 1. Introduction 
 2. Vulnerabilities\
@@ -518,7 +518,7 @@ TO DO:
 # 4 CONCLUSION
 **(Amine)**
 
-# 5 INDEX
+# ANNEX
 
 ### WPA2 automation script
 
