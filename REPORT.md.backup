@@ -19,17 +19,17 @@
 2.5. DragonBlood \
 2.5.1. WPA3-SAE \
 2.5.2.  Definition \
-2.5.3.  Fixes \
+2.5.3.  Fixes 
 3. Capture the flag \
 3.1. Requirements\
 3.2. Architecture \
 3.3. Configuration \
 3.2.1. Router \
-3.2.2. OPEN Clients
-3.2.3. WPA2 Clients
-3.2.4. WPA3 Clients
-3.4. Getting the flag
-4. Conclusion
+3.2.2. OPEN Clients \
+3.2.3. WPA2 Clients \
+3.2.4. WPA3 Clients \
+3.4. Getting the flag \
+4. Conclusion 
 5. Index
 6. References
 
