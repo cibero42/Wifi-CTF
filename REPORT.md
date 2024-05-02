@@ -516,7 +516,7 @@ Looking ahead, our goal is to maintain the availability of the challenge on GitH
 
 # INDEX
 
-###AUTOMATED SCRIPT FOR SIMULATING RANDOM NETWORK TRAFFIC ON OPEN WIFI
+### AUTOMATED SCRIPT FOR SIMULATING RANDOM NETWORK TRAFFIC ON OPEN WIFI
 ```
 #!/bin/bash
 if [[ "$OSTYPE" == "linux-gnu" && $(command -v dpkg &>/dev/null) ]]; then 
