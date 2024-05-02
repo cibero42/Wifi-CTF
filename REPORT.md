@@ -281,22 +281,7 @@ This attack can be particularly effective in places like airports, cafes, and ho
 In this report, we will demonstrate our implementation of the evil twin attack on an OPEN, WPA or WPA2 Wi-Fi network.
 
 ### 2.4.2 Attack implementation
-**(Amine)**
-For our example of attack implementation, we have cloned the login web page of CAS TSP and we will try to capture the credentials of our target. 
-
-Here are the main steps that we follow it to clone this web page. 
-
-#### Step 1 : Installing the wget
-```
-sudo apt-get install wget
-```
-
-#### Step 2 : Cloning the Login page of CAS TSP : 
-```
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://cas6.imtbs-tsp.eu/cas/login?service=https://ecampus.imtbs-tsp.eu/uPortal/Login
-```
-Then these are the steps that we have done it to implement the evil twin attack.
-
+These are the steps that we have done it to implement the evil twin attack.
 #### Step 1 : Install airgeddon :
 ```
 sudo apt update && sudo apt install airgeddon
