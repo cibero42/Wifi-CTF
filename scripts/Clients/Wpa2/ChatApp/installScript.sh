@@ -6,19 +6,21 @@ git clone https://github.com/l4ti/TSP-NET4104-HackTheFlag.git
 # Navigate into the cloned directory
 cd TSP-NET4104-HackTheFlag
 
-# Install required Python packages using pip
-pip install flask flask_sqlalchemy requests
+# Update package index
+sudo apt update
+
+# Install Python 3 and pip3
+sudo apt install -y python3 python3-pip
+
+# Install Flask and SQLAlchemy using pip3
+pip3 install flask flask_sqlalchemy
 
 # Run the Python main code
 python3 main.py
 
 # Run the Python post command 10 times
-for i in {1..10}
-do 
-    python3 client_post.py 
-    python3 client_get.py
-done 
-
-
+./John.sh #when asked, write the IP address on with your main application is running
+./Mary.sh #when asked, write the IP address on with your main application is running
+ 
 
 
