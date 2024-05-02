@@ -1,5 +1,37 @@
 # NET4101 - HACK THE FLAG
 
+# ANNEX
+
+1. Introduction 
+2. Vulnerabilities\
+2.1. Eavesdropping \
+2.1.1. Definition \
+2.1.2. Attack implementation \
+2.2. Brute Force \
+2.2.1. Definition \
+2.2.2. Attack implementation \
+2.3. Rainbow Table \
+2.3.1. Definition \
+2.3.2. Attack implementation  \
+2.4. Evil Twin \
+2.4.1. Definition \
+2.4.2. Attack implementation  \
+2.5. DragonBlood \
+2.5.1. WPA3-SAE \
+2.5.2.  Definition \
+2.5.3.  Fixes 
+3. Capture the flag \
+3.1. Requirements\
+3.2. Architecture \
+3.3. Configuration \
+3.2.1. Router \
+3.2.2. OPEN Clients \
+3.2.3. WPA2 Clients \
+3.2.4. WPA3 Clients \
+3.4. Getting the flag \
+4. Conclusion 
+5. Index
+6. References
 
 # 1 INTRODUCTION
 
@@ -40,7 +72,7 @@ There are various types of eavesdropping attacks:
 
 An eavesdropping attack simply listens to traffic and steals information from it. Therefore, it can be easily implemented on an open access point. However, to execute the attack on an encrypted network, it is necessary to know the Wi-Fi password for WPA/WPA2/WPA3.
 
-### 2.1 Attack implementation
+### 2.1.2 Attack implementation
 
 Tools-used: iw (linux default), ifconfig, wireshark 
 
@@ -486,7 +518,7 @@ TO DO:
 # 4 CONCLUSION
 **(Amine)**
 
-# 3 ANNEX
+# 5 INDEX
 
 ### WPA2 automation script
 
