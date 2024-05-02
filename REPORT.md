@@ -466,7 +466,17 @@ Throughout this report, we'll be utilizing a Linux Router, specifically the [PC 
 
 ##### APU4C4 With OpenWRT
 
-For APU4C4 running OpenWRT 23.05.2, download the provided [backup image](https://github.com) from the Capture The Flag GitHub repository.
+For APU4C4 running OpenWRT 23.05.2, download the provided [backup image](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/Router/backup-OpenWrt.tar.gz) from the Capture The Flag GitHub repository. 
+
+To restore the backup: System > Backup/Flash Firmware > Restore > **Upload archive...**
+
+There is no password for the Root user of the router. We recommend setting it once the backup is restored.
+
+| Wi-Fi Type | SSID                 | Password              | IP Block       |
+| ---------- | -------------------- | --------------------- | -------------- |
+| Open       | STARBUCKS_FREE_WIFI  | None                  | 192.168.0.0/24 |
+| WPA2       | Starbucks_Employees  | 9876543210            | 192.168.2.0/24 |
+| WPA3       | Starbucks_Management | TSP#net4104.challenge | 192.168.3.0/24 |
 
 #### Other Router Configurations
 
@@ -480,18 +490,12 @@ The following requirements outline the setup for the wireless networks:
 
 Ensure that each network is effectively isolated from the others.
 
-**(Renato)**
-TO DO:
-- Reconfigure Router
-- Export config and upload on Github
-- Explain how to restore the config (alert that only works in same router)
-
 ### 3.3.2. OPEN Clients
 As discussed earlier, the concept behind the Open Wi-Fi Network is to strategically mislead competitors in the "hack the flag" challenge by creating the illusion of significant activity within the network. This entails generating random traffic to attract attention effectively.
 
 A practical approach to achieve this goal involves developing a bash script designed to simulate genuine user interactions within an open Wi-Fi environment. This script generates diverse network activities to emulate typical user behaviors. By continuously initiating various types of network requests such as pings, DNS queries, and HTTP requests directed towards different destinations, it replicates the patterns observed in genuine network traffic.
 
-The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/generationTraffic.sh)
+The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/Clients/Open/generationTraffic.sh)
 
 ### 3.3.3 WPA2 Clients
 #### Failed version
