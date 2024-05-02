@@ -509,10 +509,16 @@ We preferred making the hackers aware of the WPA3 password through this method b
 We prepared a bash script to automate the traffic generation. You can check it the annex below. 
 
 ### 3.3.4 WPA3 Clients
-**(Renato)**
-TO DO:
-- Create linux script for RPI (weak ssh auth, hides flag inside an archive in data, install NGINX)
-- Explain what the script does
+For this phase of the lab setup, a Raspberry Pi serves as the crucial component, acting as the final piece necessary to attain the flag.
+
+The Raspberry Pi should be configured with default login credentials: username **pi** and password **raspberry**. This simplifies the process of discovering the password and gaining access to the system.
+
+The flag is concealed within the archives of the **pi** user's home folder, encoded in Base64 to add a layer of complexity for participants attempting to locate it. Furthermore, the flag archive is disguised as a text file with a ".svg" extension, adding an additional challenge for participants.
+
+To streamline the client setup, executing the automated script as root suffices. The following commands facilitate this process:
+```
+wget 
+```
 
 ## 3.4 Getting The Flag
 **(Renato)**
