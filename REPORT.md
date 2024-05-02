@@ -416,12 +416,42 @@ Within the WPA2 network, two clients engage in HTTP traffic, simulating an unenc
 Inside the WPA3 network, a single client is connected, generating minimal traffic as possible. This client has a weak SSH password, and the flag is concealed within its files, encoded in base64. Upon gaining access to the WPA3 network, participants must locate and infiltrate this client, decipher the message within the unidentified flag file, and successfully obtain the flag.
 
 ## 3.3 Configuration
-### 3.3.1 Router
+### 3.3.1 Router Configuration
+
+To establish the requisite networks for the Capture The Flag event, three distinct wireless networks must be set up, each isolated from the others. This can be accomplished through several means:
+
+1. **Consumer Routers:** Utilize three separate consumer-grade routers with their default firmware.
+2. **Enterprise Router + Access Point Setup:** Configure isolated networks using different VLANs with enterprise-grade hardware.
+3. **OpenWRT:** Opt for routers with OpenWRT installed, our chosen solution for this implementation. However, any of the aforementioned options are viable.
+
+#### 3.3.1.1 OpenWRT Installation Procedure
+
+Before proceeding with OpenWRT installation, it's needed to confirm compatibility with the chosen router model. Refer to the [Table of Hardware](https://openwrt.org/toh/views/toh_fwdownload) to verify compatibility. If supported, follow the steps outlined in the [Quick Start Guide for OpenWRT Installation](https://openwrt.org/docs/guide-quick-start/start).
+
+Throughout this report, we'll be utilizing a Linux Router, specifically the [PC Engines Apu4C4](https://www.pcengines.ch/apu4c4.html). Keep in mind that each APU4 model may have different driver requirements, depending on the selected Wi-Fi card. Refer to TekLager's [OpenWRT installation instructions](https://teklager.se/en/knowledge-base/openwrt-installation-instructions/) for a comprehensive tutorial on OS and driver installation for this board.
+
+#### 3.3.1.2 Wi-Fi Network Setup
+
+##### APU4C4 With OpenWRT
+
+For APU4C4 running OpenWRT 23.05.2, download the provided [backup image](https://github.com) from the Capture The Flag GitHub repository.
+
+#### Other Router Configurations
+
+The following requirements outline the setup for the wireless networks:
+
+| Wi-Fi Type   | Password Requirements                                                                                    | Details                                                                     |
+| ------------ | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Open Network | No password                                                                                              | No access to the router's configuration page (or usage of a very strong password) |
+| WPA2         | Password listed in [RockYou's leaked database](https://github.com/josuamarcelc/common-password-list) | No access to the router's configuration page (or usage of a very strong password) |
+| WPA3         | 8 to 16 digits, including numbers, letters, and special characters                                        | Access to the router's configuration page with a very strong password           |
+
+Ensure that each network is effectively isolated from the others.
+
 **(Renato)**
 TO DO:
 - Reconfigure Router
 - Export config and upload on Github
-- Explain Network configuration (generic)
 - Explain how to restore the config (alert that only works in same router)
 
 ### 3.3.2. OPEN Clients
