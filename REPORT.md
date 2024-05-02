@@ -510,10 +510,41 @@ rm installScript.sh install.log
 clear
 ```
 
-## 3.4 Getting The Flag
-**(Renato)**
-TO DO:
-- Step by step hack the flag
+## 3.4 Obtaining the Flag
+This section outlines the step-by-step process to successfully retrieve the flag.
+
+### Step 1: Download Kali Linux
+The only requirement is to have a pen drive with a capacity of 8GB or more. Note that all data on the pen drive will be lost during the process.
+
+Official guides are available for creating a bootable pen drive:
+- [Windows](https://www.kali.org/docs/usb/live-usb-install-with-windows/)
+- [Linux](https://www.kali.org/docs/usb/live-usb-install-with-linux/)
+- [MacOS](https://www.kali.org/docs/usb/live-usb-install-with-mac/)
+
+### Step 2: Boot into Kali Linux
+Refer to the manufacturer's instructions for booting from a pen drive on your device.
+
+### Step 3: Brute Force the WPA2 Network
+Refer to Section 2.2 of this report for instructions on performing a Brute Force attack to obtain the WPA2 network password.
+
+### Step 4: Eavesdrop on the WPA2 Network
+Using Wireshark, follow the guide in Section 2.1 and apply the filter `ip.dst==192.168.2.0/24 and http` to intercept chat messages. Analyze these messages to discover the WPA3 password.
+
+### Step 5: Connect to WPA3
+Connect to the WPA3 network using the password obtained from eavesdropping on the WPA2 network.
+
+### Step 6: Scan the Network
+Input the WPA3 network (by default, 192.168.3.0/24) into the target field and select "ping scan" in the Profile section of Zenmap. This will ping all hosts in the network to identify active ones.
+
+### Step 7: Access the Server
+The server is a Raspberry Pi, which typically has the default username **pi** and password **raspberry**.
+
+### Step 8: Locate the Flag
+Navigate to the `/home/pi` directory on the Raspberry Pi and use the `cat` command to open files. One of these files contains the flag encoded in Base64. To decode the flag, use the following command:
+
+```
+cat FILE | base64 -d
+```
 
 # 4 CONCLUSION
 In conclusion, our project serves as an immersive and highly engaging introduction to the field of cybersecurity, particularly focusing on the vulnerabilities present in Wi-Fi networks. By providing a hands-on experience through the Capture The Flag challenge, we aim to offer a practical stepping stone for individuals interested in exploring this dynamic and vital area of technology.\
@@ -524,8 +555,12 @@ It's important to emphasize that our Capture The Flag challenge is specifically 
 
 Looking ahead, our goal is to maintain the availability of the challenge on GitHub, accompanied by comprehensive explanations and documentation. This resource will serve as a valuable educational tool for high school students, university freshmen, and anyone else looking to explore cybersecurity in a hands-on and practical manner. By making the challenge accessible and user-friendly, we hope to inspire the next generation of cybersecurity professionals and contribute to building a more secure digital future.\
 
+# 5 REFERENCES
+https://security.stackexchange.com/questions/92903/rainbow-tables-hash-tables-versus-wpa-wpa2
 
-# INDEX
+SAE: https://ieeexplore.ieee.org/document/4622764
+
+# ANNEX
 
 ### Open Wi-Fi Script
 ```
@@ -606,7 +641,72 @@ python3 main.py
 ./Mary.sh #when asked, write the IP address on with your main application is running
 ```
 
-# 6 REFERENCES
-https://security.stackexchange.com/questions/92903/rainbow-tables-hash-tables-versus-wpa-wpa2
+## WPA3 Script
+```
+#!/bin/bash
 
-SAE: https://ieeexplore.ieee.org/document/4622764
+if [[ "$OSTYPE" == "linux-gnu" && $(command -v dpkg &>/dev/null) ]]; then
+	echo "You are running Linux (Debian-based)."
+	
+	if [ "$EUID" -ne 0 ]
+		then
+		echo "Please run as root. Exiting..."
+		exit
+	fi
+	
+	mkdir install.log
+	echo "Updating system"
+	{
+		apt update
+		apt upgrade -y
+	} > install.log
+	echo "Installing OpenSSH and Nginx"
+	{
+		apt install openssh nginx -y
+	} > install.log
+	cat /etc/passwd | grep "pi:" >/dev/null 2>&1
+	if [ $? -eq 0 ] ; then
+		echo "Pi User Exists"
+	else
+		echo "User Not Found. Creating user..."
+		useradd -m pi
+	fi
+	
+	echo "pi:raspberry" | chpasswd
+	echo "NEW PI USER PASSWORD: raspberry"
+
+	echo "Populating Home Directory"
+	dd if=/dev/urandom of=/home/pi/img01.jpg bs=1M count=10
+	dd if=/dev/urandom of=/home/pi/img02.jpg bs=1M count=8
+	dd if=/dev/urandom of=/home/pi/img03.jpg bs=1M count=11
+	dd if=/dev/urandom of=/home/pi/school.docx bs=132K count=1
+	dd if=/dev/urandom of=/home/pi/passport.pdf bs=512K count=5
+	dd if=/dev/urandom of=/home/pi/data.txt bs=256K count=3
+	dd if=/dev/urandom of=/home/pi/dog.png bs=1M count=7
+	dd if=/dev/urandom of=/home/pi/confidential.zip bs=2M count=4
+	dd if=/dev/urandom of=/home/pi/amelia.txt bs=128K count=2
+	dd if=/dev/urandom of=/home/pi/document09.doc bs=256K count=6
+	dd if=/dev/urandom of=/home/pi/employee42.jpg bs=1M count=9
+	dd if=/dev/urandom of=/home/pi/quotation.txt bs=64K count=8
+	dd if=/dev/urandom of=/home/pi/newdocument-2.xlsx bs=512K count=3
+	dd if=/dev/urandom of=/home/pi/shareholders.pptx bs=1M count=7
+	dd if=/dev/urandom of=/home/pi/employee_list.csv bs=256K count=4
+	dd if=/dev/urandom of=/home/pi/autoAuthDB.sh bs=64K count=2
+	dd if=/dev/urandom of=/home/pi/document.pdf bs=768K count=5
+	dd if=/dev/urandom of=/home/pi/contacts.tar.gz bs=2M count=6
+	dd if=/dev/urandom of=/home/pi/graph.jpg bs=1M count=8
+	
+	echo "Creating the Flag"
+	touch /home/pi/cat.svg
+	echo "Congratulations! You found the flag." | base64 > home/pi/cat.svg
+	echo "Changing ownership of files"
+	sudo chown -R pi:pi /home/pi
+	
+	echo "FINISHED CONFIGURATION"
+	echo "Remember to remove this script and clear the history of commands from the machine."
+
+else
+	echo "This script requires Linux (Debian-based) with dpkg installed."
+	exit 1
+fi
+```
