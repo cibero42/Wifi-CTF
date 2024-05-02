@@ -501,8 +501,13 @@ The Raspberry Pi should be configured with default login credentials: username *
 The flag is concealed within the archives of the **pi** user's home folder, encoded in Base64 to add a layer of complexity for participants attempting to locate it. Furthermore, the flag archive is disguised as a text file with a ".svg" extension, adding an additional challenge for participants.
 
 To streamline the client setup, executing the automated script as root suffices. The following commands facilitate this process:
+
 ```
-wget 
+wget https://raw.githubusercontent.com/l4ti/TSP-NET4104-HackTheFlag/main/scripts/Clients/Wpa3/installScript.sh
+chmod +x installScript.sh
+sudo ./installScript.sh
+rm installScript.sh install.log
+clear
 ```
 
 ## 3.4 Getting The Flag
@@ -522,7 +527,7 @@ Looking ahead, our goal is to maintain the availability of the challenge on GitH
 
 # INDEX
 
-### AUTOMATED SCRIPT FOR SIMULATING RANDOM NETWORK TRAFFIC ON OPEN WIFI
+### Open Wi-Fi Script
 ```
 #!/bin/bash
 if [[ "$OSTYPE" == "linux-gnu" && $(command -v dpkg &>/dev/null) ]]; then 
@@ -574,10 +579,10 @@ else
     exit 1
 fi
 ```
-### WPA2 automation script
 
-```#!/bin/bash
-
+### WPA2 Script
+```
+#!/bin/bash
 # Clone the repository from GitHub
 git clone https://github.com/l4ti/TSP-NET4104-HackTheFlag.git
 
