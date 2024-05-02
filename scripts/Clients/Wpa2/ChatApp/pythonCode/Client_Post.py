@@ -8,7 +8,7 @@ payload = {
 # header of our post request indicating content type to be JSON
 headers = {'Content-type': 'application/json'}
 # Sending a post request to our API
-response = requests.post(url='http://192.168.2.161:5000/add_message',
+response = requests.post(url='http://10.42.47.4:5000/add_message',
                         data=json.dumps(payload),
                         headers=headers)
 # Printing out the response.

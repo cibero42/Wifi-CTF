@@ -1,5 +1,6 @@
 # NET4101 - HACK THE FLAG
 
+
 # 1 INTRODUCTION
 
 In today's digitized world, the importance of cybersecurity cannot be overstated. As society becomes increasingly reliant on digital technologies for communication, commerce, and critical infrastructure, the risks associated with cyber threats grow concurrently. Cybersecurity serves as the cornerstone for protecting sensitive information, preserving privacy, and maintaining the integrity of systems and networks.
@@ -431,7 +432,9 @@ A practical approach to achieve this goal involves developing a bash script desi
 The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/generationTraffic.sh)
 
 ### 3.3.3 WPA2 Clients
-In this section we're generating WPA2 traffic between the client and the server. The client can make post and get requests to exchange data from the database.
+Within the WPA2 network, we developed a Python application simulating an HTTP unencrypted chat application. In order to implement our chat app, we are using two computers running Ubuntu which simulate two coworkers, John and Mary, having a conversation. At a certain point in the dialogue, one of them inadvertently reveals the WPA3 password. The idea is that the participants of the championship start analyzing the traffic going through the network with Wireshark, eavesdropping on John and Mary's conversation and successfully obtaining the WPA3 password.
+
+We preferred making the hackers aware of the WPA3 password through this method because most WPA3 vulnerabilities have been patched and there isn't a simple WPA3 cracking tool which will seamlessly work in most scenarios.
 
 We prepared a bash script to automate the traffic generation. You can check it the annex.
 
