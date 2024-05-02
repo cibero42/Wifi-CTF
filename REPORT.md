@@ -520,7 +520,14 @@ TO DO:
 - Step by step hack the flag
 
 # 4 CONCLUSION
-**(Amine)**
+In conclusion, our project serves as an immersive and highly engaging introduction to the field of cybersecurity, particularly focusing on the vulnerabilities present in Wi-Fi networks. By providing a hands-on experience through the Capture The Flag challenge, we aim to offer a practical stepping stone for individuals interested in exploring this dynamic and vital area of technology.\
+
+One of the primary objectives of our project is to raise awareness about the inherent vulnerabilities in Wi-Fi networks, which are often overlooked or underestimated. Through the simulation of real-world attack scenarios, participants gain firsthand experience of the threats posed by eavesdropping, brute force attacks, Evil Twin attacks, and other potential security breaches. This heightened awareness is crucial in fostering a proactive approach to cybersecurity, encouraging individuals to implement robust security measures to protect their digital assets.\
+
+It's important to emphasize that our Capture The Flag challenge is specifically designed for beginners in the cybersecurity field. While experienced hackers may find aspects of the challenge intriguing, its primary aim is to provide a learning platform for those new to cybersecurity. By focusing on foundational concepts and practical implementation, we aim to demystify complex cybersecurity concepts and empower beginners to develop essential skills in threat detection, analysis, and mitigation.\
+
+Looking ahead, our goal is to maintain the availability of the challenge on GitHub, accompanied by comprehensive explanations and documentation. This resource will serve as a valuable educational tool for high school students, university freshmen, and anyone else looking to explore cybersecurity in a hands-on and practical manner. By making the challenge accessible and user-friendly, we hope to inspire the next generation of cybersecurity professionals and contribute to building a more secure digital future.\
+
 
 # ANNEX
 
