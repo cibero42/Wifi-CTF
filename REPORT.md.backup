@@ -1,5 +1,6 @@
 # NET4101 - HACK THE FLAG
 
+
 # 1 INTRODUCTION
 
 In today's digitized world, the importance of cybersecurity cannot be overstated. As society becomes increasingly reliant on digital technologies for communication, commerce, and critical infrastructure, the risks associated with cyber threats grow concurrently. Cybersecurity serves as the cornerstone for protecting sensitive information, preserving privacy, and maintaining the integrity of systems and networks.
@@ -415,12 +416,42 @@ Within the WPA2 network, two clients engage in HTTP traffic, simulating an unenc
 Inside the WPA3 network, a single client is connected, generating minimal traffic as possible. This client has a weak SSH password, and the flag is concealed within its files, encoded in base64. Upon gaining access to the WPA3 network, participants must locate and infiltrate this client, decipher the message within the unidentified flag file, and successfully obtain the flag.
 
 ## 3.3 Configuration
-### 3.3.1 Router
+### 3.3.1 Router Configuration
+
+To establish the requisite networks for the Capture The Flag event, three distinct wireless networks must be set up, each isolated from the others. This can be accomplished through several means:
+
+1. **Consumer Routers:** Utilize three separate consumer-grade routers with their default firmware.
+2. **Enterprise Router + Access Point Setup:** Configure isolated networks using different VLANs with enterprise-grade hardware.
+3. **OpenWRT:** Opt for routers with OpenWRT installed, our chosen solution for this implementation. However, any of the aforementioned options are viable.
+
+#### 3.3.1.1 OpenWRT Installation Procedure
+
+Before proceeding with OpenWRT installation, it's needed to confirm compatibility with the chosen router model. Refer to the [Table of Hardware](https://openwrt.org/toh/views/toh_fwdownload) to verify compatibility. If supported, follow the steps outlined in the [Quick Start Guide for OpenWRT Installation](https://openwrt.org/docs/guide-quick-start/start).
+
+Throughout this report, we'll be utilizing a Linux Router, specifically the [PC Engines Apu4C4](https://www.pcengines.ch/apu4c4.html). Keep in mind that each APU4 model may have different driver requirements, depending on the selected Wi-Fi card. Refer to TekLager's [OpenWRT installation instructions](https://teklager.se/en/knowledge-base/openwrt-installation-instructions/) for a comprehensive tutorial on OS and driver installation for this board.
+
+#### 3.3.1.2 Wi-Fi Network Setup
+
+##### APU4C4 With OpenWRT
+
+For APU4C4 running OpenWRT 23.05.2, download the provided [backup image](https://github.com) from the Capture The Flag GitHub repository.
+
+#### Other Router Configurations
+
+The following requirements outline the setup for the wireless networks:
+
+| Wi-Fi Type   | Password Requirements                                                                                    | Details                                                                     |
+| ------------ | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Open Network | No password                                                                                              | No access to the router's configuration page (or usage of a very strong password) |
+| WPA2         | Password listed in [RockYou's leaked database](https://github.com/josuamarcelc/common-password-list) | No access to the router's configuration page (or usage of a very strong password) |
+| WPA3         | 8 to 16 digits, including numbers, letters, and special characters                                        | Access to the router's configuration page with a very strong password           |
+
+Ensure that each network is effectively isolated from the others.
+
 **(Renato)**
 TO DO:
 - Reconfigure Router
 - Export config and upload on Github
-- Explain Network configuration (generic)
 - Explain how to restore the config (alert that only works in same router)
 
 ### 3.3.2. OPEN Clients
@@ -431,11 +462,15 @@ A practical approach to achieve this goal involves developing a bash script desi
 The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/generationTraffic.sh)
 
 ### 3.3.3 WPA2 Clients
+#### Failed version
+We prepared a chat application to generate a random traffic between two users using SocketIO. But we couldn't analyze the traffic using Wireshark.So we decided to create a new chat application using http. 
+
+#### Successful version
 Within the WPA2 network, we developed a Python application simulating an HTTP unencrypted chat application. In order to implement our chat app, we are using two computers running Ubuntu which simulate two coworkers, John and Mary, having a conversation. At a certain point in the dialogue, one of them inadvertently reveals the WPA3 password. The idea is that the participants of the championship start analyzing the traffic going through the network with Wireshark, eavesdropping on John and Mary's conversation and successfully obtaining the WPA3 password.
 
 We preferred making the hackers aware of the WPA3 password through this method because most WPA3 vulnerabilities have been patched and there isn't a simple WPA3 cracking tool which will seamlessly work in most scenarios.
 
-We prepared a bash script to automate the traffic generation. You can check it the annex.
+We prepared a bash script to automate the traffic generation. You can check it the annex below. 
 
 ### 3.3.4 WPA3 Clients
 **(Renato)**
@@ -451,7 +486,33 @@ TO DO:
 # 4 CONCLUSION
 **(Amine)**
 
-# 5 REFERENCES
+# 3 ANNEX
+
+### WPA2 automation script
+
+```#!/bin/bash
+
+# Clone the repository from GitHub
+git clone https://github.com/l4ti/TSP-NET4104-HackTheFlag.git
+
+# Navigate into the cloned directory
+cd TSP-NET4104-HackTheFlag
+
+# Install required Python packages using pip
+pip install flask flask_sqlalchemy requests
+
+# Run the Python main code
+python3 main.py
+
+# Run the Python post command 10 times
+for i in {1..10}
+do 
+    python3 client_post.py 
+    python3 client_get.py
+done 
+```
+
+# 6 REFERENCES
 https://security.stackexchange.com/questions/92903/rainbow-tables-hash-tables-versus-wpa-wpa2
 
 SAE: https://ieeexplore.ieee.org/document/4622764

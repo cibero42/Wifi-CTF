@@ -462,11 +462,15 @@ A practical approach to achieve this goal involves developing a bash script desi
 The code can be seen [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts/generationTraffic.sh)
 
 ### 3.3.3 WPA2 Clients
+#### Failed version
+We prepared a chat application to generate a random traffic between two users using SocketIO. But we couldn't analyze the traffic using Wireshark.So we decided to create a new chat application using HTTP. 
+
+#### Successful version
 Within the WPA2 network, we developed a Python application simulating an HTTP unencrypted chat application. In order to implement our chat app, we are using two computers running Ubuntu which simulate two coworkers, John and Mary, having a conversation. At a certain point in the dialogue, one of them inadvertently reveals the WPA3 password. The idea is that the participants of the championship start analyzing the traffic going through the network with Wireshark, eavesdropping on John and Mary's conversation and successfully obtaining the WPA3 password.
 
 We preferred making the hackers aware of the WPA3 password through this method because most WPA3 vulnerabilities have been patched and there isn't a simple WPA3 cracking tool which will seamlessly work in most scenarios.
 
-We prepared a bash script to automate the traffic generation. You can check it the annex.
+We prepared a bash script to automate the traffic generation. You can check it the annex below. 
 
 ### 3.3.4 WPA3 Clients
 **(Renato)**
@@ -482,7 +486,33 @@ TO DO:
 # 4 CONCLUSION
 **(Amine)**
 
-# 5 REFERENCES
+# 3 ANNEX
+
+### WPA2 automation script
+
+```#!/bin/bash
+
+# Clone the repository from GitHub
+git clone https://github.com/l4ti/TSP-NET4104-HackTheFlag.git
+
+# Navigate into the cloned directory
+cd TSP-NET4104-HackTheFlag
+
+# Install required Python packages using pip
+pip install flask flask_sqlalchemy requests
+
+# Run the Python main code
+python3 main.py
+
+# Run the Python post command 10 times
+for i in {1..10}
+do 
+    python3 client_post.py 
+    python3 client_get.py
+done 
+```
+
+# 6 REFERENCES
 https://security.stackexchange.com/questions/92903/rainbow-tables-hash-tables-versus-wpa-wpa2
 
 SAE: https://ieeexplore.ieee.org/document/4622764
