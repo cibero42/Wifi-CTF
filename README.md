@@ -1,5 +1,4 @@
 # Wireless Hack The Flag
-**Télécom SudParis NET4104**
 
 This project aims to teach the common Wi-Fi vunerabilites, using a cool Hack The Flag game.
 You can find all instructions and explanations [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/REPORT.md) and all automation attack shell scripts can be found [here](https://github.com/l4ti/TSP-NET4104-HackTheFlag/blob/main/scripts)
